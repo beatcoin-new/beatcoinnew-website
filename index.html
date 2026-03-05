@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -40,7 +40,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 14px 32px;
-      background: rgba(15, 10, 30, 0.92);
+      background: rgba(15, 10, 30, 0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(124, 58, 237, 0.3);
     }
@@ -53,8 +53,7 @@
     }
 
     .nav-logo img {
-      width: 38px;
-      height: 38px;
+      width: 38px; height: 38px;
       border-radius: 50%;
       border: 2px solid var(--primary);
     }
@@ -63,34 +62,104 @@
       font-size: 1.3rem;
       font-weight: 700;
       color: var(--text-main);
-      letter-spacing: 0.5px;
     }
 
     .nav-links {
       display: flex;
-      gap: 28px;
+      gap: 22px;
       list-style: none;
+      align-items: center;
     }
 
     .nav-links a {
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       transition: color 0.2s;
     }
 
     .nav-links a:hover { color: var(--text-main); }
 
     .nav-buy-btn {
-      background: var(--accent);
+      background: var(--accent) !important;
       color: #1a1035 !important;
       font-weight: 700 !important;
-      padding: 8px 20px;
+      padding: 7px 18px;
       border-radius: 8px;
-      transition: background 0.2s !important;
     }
 
-    .nav-buy-btn:hover { background: var(--accent-dark) !important; color: #fff !important; }
+    .nav-buy-btn:hover { background: var(--accent-dark) !important; }
+
+    /* Language Selector */
+    .lang-selector {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .lang-btn {
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.35);
+      color: var(--text-main);
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .lang-btn:hover { background: rgba(124,58,237,0.3); }
+
+    .lang-dropdown {
+      display: none;
+      position: absolute;
+      top: calc(100% + 8px);
+      right: 0;
+      background: #1a1035;
+      border: 1px solid rgba(124,58,237,0.4);
+      border-radius: 12px;
+      padding: 8px;
+      min-width: 180px;
+      z-index: 200;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      max-height: 380px;
+      overflow-y: auto;
+    }
+
+    .lang-dropdown.open { display: block; }
+
+    .lang-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      transition: all 0.15s;
+    }
+
+    .lang-option:hover { background: rgba(124,58,237,0.2); color: var(--text-main); }
+    .lang-option.active { color: var(--accent); font-weight: 600; }
+
+    /* Connect Wallet */
+    .connect-btn {
+      background: rgba(124,58,237,0.2);
+      border: 1px solid rgba(124,58,237,0.5);
+      color: var(--text-muted);
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .connect-btn:hover { background: rgba(124,58,237,0.35); color: var(--text-main); }
 
     /* ── HERO ── */
     .hero {
@@ -122,8 +191,7 @@
     .hero-content { max-width: 760px; position: relative; z-index: 1; }
 
     .hero-logo {
-      width: 120px;
-      height: 120px;
+      width: 120px; height: 120px;
       border-radius: 50%;
       border: 4px solid var(--primary);
       box-shadow: 0 0 40px rgba(124,58,237,0.5);
@@ -141,7 +209,6 @@
       padding: 6px 16px;
       border-radius: 100px;
       margin-bottom: 20px;
-      letter-spacing: 0.5px;
     }
 
     h1 {
@@ -162,10 +229,7 @@
       margin: 0 auto 36px;
     }
 
-    .hero-sub strong {
-      color: var(--accent);
-      -webkit-text-fill-color: var(--accent);
-    }
+    .hero-sub strong { color: var(--accent); -webkit-text-fill-color: var(--accent); }
 
     .btn-buy {
       display: inline-flex;
@@ -180,23 +244,31 @@
       text-decoration: none;
       box-shadow: 0 8px 30px rgba(245,158,11,0.4);
       transition: transform 0.2s, box-shadow 0.2s;
-      letter-spacing: 0.3px;
     }
 
-    .btn-buy:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 40px rgba(245,158,11,0.55);
-    }
-
+    .btn-buy:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(245,158,11,0.55); }
     .btn-buy svg { width: 22px; height: 22px; }
 
-    .hero-note {
-      margin-top: 18px;
-      font-size: 0.82rem;
-      color: rgba(167,139,250,0.6);
+    .hero-note { margin-top: 18px; font-size: 0.82rem; color: rgba(167,139,250,0.6); }
+
+    .hero-social {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 24px;
+      flex-wrap: wrap;
     }
 
-    /* ── STATS BAR ── */
+    .hero-social a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .hero-social a:hover { color: var(--text-main); }
+
+    /* ── LIVE PRICE BAR ── */
     .stats-bar {
       background: var(--bg-card);
       border-top: 1px solid rgba(124,58,237,0.2);
@@ -205,7 +277,7 @@
     }
 
     .stats-inner {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
       display: flex;
       justify-content: space-around;
@@ -215,17 +287,8 @@
 
     .stat { text-align: center; }
 
-    .stat-value {
-      font-size: 1.7rem;
-      font-weight: 800;
-      color: var(--accent);
-    }
-
-    .stat-label {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
+    .stat-value { font-size: 1.7rem; font-weight: 800; color: var(--accent); }
+    .stat-label { font-size: 0.82rem; color: var(--text-muted); margin-top: 4px; }
 
     /* ── SECTION ── */
     section {
@@ -234,19 +297,68 @@
       margin: 0 auto;
     }
 
-    .section-title {
-      font-size: 1.9rem;
-      font-weight: 700;
+    .section-title { font-size: 1.9rem; font-weight: 700; text-align: center; margin-bottom: 12px; }
+    .section-sub { text-align: center; color: var(--text-muted); margin-bottom: 48px; font-size: 1rem; }
+    .section-tag {
       text-align: center;
-      margin-bottom: 12px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 10px;
     }
 
-    .section-sub {
-      text-align: center;
-      color: var(--text-muted);
-      margin-bottom: 48px;
-      font-size: 1rem;
+    /* ── MISSION ── */
+    .mission-wrap {
+      background: var(--bg-card);
+      border: 1px solid rgba(124,58,237,0.25);
+      border-radius: 20px;
+      padding: 48px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
     }
+
+    .mission-text h2 { font-size: 1.7rem; font-weight: 700; margin-bottom: 16px; }
+    .mission-text p { color: var(--text-muted); margin-bottom: 12px; font-size: 0.95rem; }
+
+    .mission-highlight {
+      background: rgba(245,158,11,0.1);
+      border-left: 4px solid var(--accent);
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 20px;
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .mission-visual { text-align: center; }
+    .mission-paw { font-size: 8rem; line-height: 1; filter: drop-shadow(0 0 20px rgba(124,58,237,0.4)); }
+    .mission-percent { font-size: 3.5rem; font-weight: 900; color: var(--accent); display: block; margin-top: 8px; }
+    .mission-percent-label { color: var(--text-muted); font-size: 0.9rem; }
+
+    /* ── IMPACT ── */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .impact-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 16px;
+      padding: 32px 28px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .impact-card:hover { border-color: var(--primary); transform: translateY(-4px); }
+    .impact-icon { font-size: 2.5rem; margin-bottom: 16px; }
+    .impact-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+    .impact-card p { font-size: 0.9rem; color: var(--text-muted); }
 
     /* ── HOW IT WORKS ── */
     .steps {
@@ -264,16 +376,8 @@
       transition: border-color 0.2s, transform 0.2s;
     }
 
-    .step-card:hover {
-      border-color: var(--primary);
-      transform: translateY(-4px);
-    }
-
-    .step-icon {
-      font-size: 2.8rem;
-      margin-bottom: 16px;
-    }
-
+    .step-card:hover { border-color: var(--primary); transform: translateY(-4px); }
+    .step-icon { font-size: 2.8rem; margin-bottom: 16px; }
     .step-num {
       display: inline-block;
       background: var(--primary);
@@ -284,80 +388,8 @@
       border-radius: 100px;
       margin-bottom: 12px;
     }
-
-    .step-card h3 {
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-    }
-
-    .step-card p {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
-
-    /* ── MISSION ── */
-    .mission-wrap {
-      background: var(--bg-card);
-      border: 1px solid rgba(124,58,237,0.25);
-      border-radius: 20px;
-      padding: 48px 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    @media (max-width: 640px) {
-      .mission-wrap { grid-template-columns: 1fr; padding: 32px 24px; }
-      nav { padding: 12px 16px; }
-      .nav-links { display: none; }
-    }
-
-    .mission-text h2 {
-      font-size: 1.7rem;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    .mission-text p {
-      color: var(--text-muted);
-      margin-bottom: 12px;
-      font-size: 0.95rem;
-    }
-
-    .mission-highlight {
-      background: rgba(245,158,11,0.1);
-      border-left: 4px solid var(--accent);
-      padding: 14px 18px;
-      border-radius: 0 8px 8px 0;
-      margin-top: 20px;
-      font-size: 0.95rem;
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .mission-visual {
-      text-align: center;
-    }
-
-    .mission-paw {
-      font-size: 8rem;
-      line-height: 1;
-      filter: drop-shadow(0 0 20px rgba(124,58,237,0.4));
-    }
-
-    .mission-percent {
-      font-size: 3.5rem;
-      font-weight: 900;
-      color: var(--accent);
-      display: block;
-      margin-top: 8px;
-    }
-
-    .mission-percent-label {
-      color: var(--text-muted);
-      font-size: 0.9rem;
-    }
+    .step-card h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .step-card p { font-size: 0.88rem; color: var(--text-muted); }
 
     /* ── TOKENOMICS ── */
     .token-grid {
@@ -374,19 +406,256 @@
       text-align: center;
     }
 
-    .token-card .t-label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
+    .token-card .t-label { font-size: 0.8rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+    .token-card .t-value { font-size: 1.3rem; font-weight: 700; color: var(--text-main); }
+
+    .token-dist {
+      margin-top: 40px;
+      background: var(--bg-card);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 16px;
+      padding: 32px;
     }
 
-    .token-card .t-value {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--text-main);
+    .token-dist h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; text-align: center; }
+
+    .dist-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 14px;
     }
+
+    .dist-label { width: 140px; font-size: 0.88rem; color: var(--text-muted); flex-shrink: 0; }
+    .dist-bar-wrap { flex: 1; background: rgba(124,58,237,0.1); border-radius: 100px; height: 8px; }
+    .dist-bar { height: 8px; border-radius: 100px; background: linear-gradient(90deg, var(--primary), var(--accent)); }
+    .dist-pct { width: 50px; text-align: right; font-size: 0.88rem; font-weight: 700; color: var(--accent); }
+
+    /* ── ROADMAP ── */
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .road-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 16px;
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .road-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+
+    .road-card.done::before { background: #10b981; }
+    .road-card.progress::before { background: var(--accent); }
+    .road-card.upcoming::before { background: var(--primary); }
+
+    .road-phase {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .road-card.done .road-phase { color: #10b981; }
+    .road-card.progress .road-phase { color: var(--accent); }
+    .road-card.upcoming .road-phase { color: var(--text-muted); }
+
+    .road-status {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .road-card.done .road-status { background: rgba(16,185,129,0.15); color: #10b981; }
+    .road-card.progress .road-status { background: rgba(245,158,11,0.15); color: var(--accent); }
+    .road-card.upcoming .road-status { background: rgba(124,58,237,0.15); color: var(--text-muted); }
+
+    .road-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 16px; }
+
+    .road-items { list-style: none; }
+    .road-items li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      padding: 5px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .road-items li::before { content: '✓'; color: #10b981; font-weight: 700; }
+    .road-card.progress .road-items li::before { content: '→'; color: var(--accent); }
+    .road-card.upcoming .road-items li::before { content: '○'; color: var(--text-muted); }
+
+    /* ── RESCUE FUND ── */
+    .rescue-wrap {
+      background: var(--bg-card);
+      border: 1px solid rgba(124,58,237,0.25);
+      border-radius: 20px;
+      padding: 40px;
+    }
+
+    .rescue-calc {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin: 32px 0;
+    }
+
+    .calc-box {
+      background: rgba(124,58,237,0.1);
+      border: 1px solid rgba(124,58,237,0.3);
+      border-radius: 12px;
+      padding: 16px 20px;
+      text-align: center;
+      min-width: 120px;
+    }
+
+    .calc-box .c-label { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px; }
+    .calc-box .c-value { font-size: 1.3rem; font-weight: 800; color: var(--text-main); }
+
+    .calc-op { font-size: 1.5rem; color: var(--text-muted); font-weight: 300; }
+
+    .rescue-result {
+      background: rgba(245,158,11,0.1);
+      border: 1px solid rgba(245,158,11,0.3);
+      border-radius: 12px;
+      padding: 16px 20px;
+      text-align: center;
+      min-width: 140px;
+    }
+
+    .rescue-result .c-label { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 6px; }
+    .rescue-result .c-value { font-size: 1.5rem; font-weight: 900; color: var(--accent); }
+
+    .rescue-note { text-align: center; font-size: 0.78rem; color: rgba(167,139,250,0.5); margin-top: 16px; }
+
+    .rescue-wallet {
+      background: rgba(124,58,237,0.08);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-top: 28px;
+    }
+
+    .rescue-wallet h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 8px; }
+    .wallet-addr {
+      font-family: monospace;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      word-break: break-all;
+      margin-bottom: 10px;
+    }
+
+    .copy-btn {
+      background: rgba(124,58,237,0.2);
+      border: 1px solid rgba(124,58,237,0.4);
+      color: var(--text-muted);
+      padding: 5px 14px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-right: 8px;
+    }
+
+    .copy-btn:hover { background: rgba(124,58,237,0.35); color: var(--text-main); }
+
+    .donation-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16,185,129,0.1);
+      border: 1px solid rgba(16,185,129,0.3);
+      color: #10b981;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-top: 12px;
+    }
+
+    /* ── GIVEAWAY ── */
+    .giveaway-wrap {
+      background: var(--bg-card);
+      border: 1px solid rgba(124,58,237,0.25);
+      border-radius: 20px;
+      padding: 40px;
+    }
+
+    .giveaway-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+    }
+
+    .giveaway-table th {
+      text-align: left;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      padding: 10px 16px;
+      border-bottom: 1px solid rgba(124,58,237,0.2);
+    }
+
+    .giveaway-table td {
+      padding: 12px 16px;
+      font-size: 0.88rem;
+      border-bottom: 1px solid rgba(124,58,237,0.1);
+    }
+
+    .giveaway-table tr:last-child td { border-bottom: none; }
+    .giveaway-table .rank { color: var(--accent); font-weight: 700; }
+    .giveaway-table .handle { color: var(--text-main); }
+    .giveaway-table .reward { color: #10b981; font-weight: 700; }
+    .giveaway-table .check { color: #10b981; }
+
+    .giveaway-live {
+      background: rgba(245,158,11,0.08);
+      border: 1px solid rgba(245,158,11,0.3);
+      border-radius: 16px;
+      padding: 28px;
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .giveaway-live h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; color: var(--accent); }
+    .giveaway-live p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 20px; }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cd-box {
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.3);
+      border-radius: 10px;
+      padding: 12px 18px;
+      text-align: center;
+      min-width: 70px;
+    }
+
+    .cd-num { font-size: 1.8rem; font-weight: 900; color: var(--text-main); display: block; }
+    .cd-label { font-size: 0.7rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
 
     /* ── CTA ── */
     .cta-section {
@@ -395,83 +664,15 @@
       background: radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.15) 0%, transparent 70%);
     }
 
-    .cta-section h2 {
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin-bottom: 16px;
-    }
-
-    .cta-section p {
-      color: var(--text-muted);
-      margin-bottom: 36px;
-      font-size: 1rem;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--bg-card);
-      border-top: 1px solid rgba(124,58,237,0.2);
-      padding: 40px 24px;
-      text-align: center;
-    }
-
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-
-    .footer-logo img {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-    }
-
-    .footer-logo span {
-      font-weight: 700;
-      font-size: 1.1rem;
-    }
-
-    .footer-links {
-      display: flex;
-      justify-content: center;
-      gap: 24px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
-    }
-
-    .footer-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.88rem;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--text-main); }
-
-    .footer-contract {
-      font-size: 0.75rem;
-      color: rgba(167,139,250,0.5);
-      word-break: break-all;
-      max-width: 600px;
-      margin: 0 auto 12px;
-    }
-
-    .footer-disclaimer {
-      font-size: 0.72rem;
-      color: rgba(167,139,250,0.4);
-      max-width: 600px;
-      margin: 0 auto;
-    }
+    .cta-section h2 { font-size: 2.2rem; font-weight: 800; margin-bottom: 16px; }
+    .cta-section p { color: var(--text-muted); margin-bottom: 36px; font-size: 1rem; }
 
     /* ── SOCIAL ── */
     .social-row {
       display: flex;
       justify-content: center;
-      gap: 16px;
-      margin-bottom: 24px;
+      gap: 14px;
+      margin-bottom: 28px;
       flex-wrap: wrap;
     }
 
@@ -489,13 +690,35 @@
       transition: all 0.2s;
     }
 
-    .social-btn:hover {
-      background: rgba(124,58,237,0.3);
-      color: var(--text-main);
-      border-color: var(--primary);
+    .social-btn:hover { background: rgba(124,58,237,0.3); color: var(--text-main); border-color: var(--primary); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-card);
+      border-top: 1px solid rgba(124,58,237,0.2);
+      padding: 40px 24px;
+      text-align: center;
     }
 
-    /* ── PULSE ANIMATION ── */
+    .footer-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 16px; }
+    .footer-logo img { width: 32px; height: 32px; border-radius: 50%; }
+    .footer-logo span { font-weight: 700; font-size: 1.1rem; }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text-main); }
+
+    .footer-contract { font-size: 0.75rem; color: rgba(167,139,250,0.5); word-break: break-all; max-width: 600px; margin: 0 auto 12px; }
+    .footer-disclaimer { font-size: 0.72rem; color: rgba(167,139,250,0.4); max-width: 600px; margin: 0 auto; }
+
+    /* ── ANIMATIONS ── */
     @keyframes pulse-ring {
       0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245,158,11,0.5); }
       70% { transform: scale(1); box-shadow: 0 0 0 14px rgba(245,158,11,0); }
@@ -504,6 +727,15 @@
 
     .btn-buy { animation: pulse-ring 2.5s infinite; }
     .btn-buy:hover { animation: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 12px 16px; }
+      .nav-links { display: none; }
+      .mission-wrap { grid-template-columns: 1fr; padding: 32px 24px; }
+      .rescue-calc { gap: 8px; }
+      .calc-op { display: none; }
+    }
   </style>
 </head>
 <body>
@@ -515,57 +747,89 @@
       <span>BEAT Coin</span>
     </a>
     <ul class="nav-links">
-      <li><a href="#mission">Mission</a></li>
-      <li><a href="#how">How It Works</a></li>
-      <li><a href="#tokenomics">Tokenomics</a></li>
-      <li><a href="https://quickswap.exchange/#/swap?outputCurrency=0xdf9e5484F664bF0374117754aafBb7db94d1C98b" target="_blank" class="nav-buy-btn">Buy BEAT</a></li>
+      <li><a href="#mission" data-i18n="nav_mission">Mission</a></li>
+      <li><a href="#how" data-i18n="nav_how">How It Works</a></li>
+      <li><a href="#roadmap" data-i18n="nav_roadmap">Roadmap</a></li>
+      <li><a href="#tokenomics" data-i18n="nav_tokenomics">Tokenomics</a></li>
+      <li><a href="#rescue" data-i18n="nav_rescue">Rescue Fund</a></li>
+      <li><a href="https://quickswap.exchange/#/swap?outputCurrency=0xdf9e5484F664bF0374117754aafBb7db94d1C98b" target="_blank" class="nav-buy-btn" data-i18n="nav_buy">Buy BEAT</a></li>
     </ul>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="lang-selector">
+        <button class="lang-btn" onclick="toggleLang()" id="langBtn">🇺🇸 EN ▾</button>
+        <div class="lang-dropdown" id="langDropdown">
+          <div class="lang-option active" onclick="setLang('en')">🇺🇸 English</div>
+          <div class="lang-option" onclick="setLang('he')">🇮🇱 עברית</div>
+          <div class="lang-option" onclick="setLang('es')">🇪🇸 Español</div>
+          <div class="lang-option" onclick="setLang('fr')">🇫🇷 Français</div>
+          <div class="lang-option" onclick="setLang('de')">🇩🇪 Deutsch</div>
+          <div class="lang-option" onclick="setLang('pt')">🇧🇷 Português</div>
+          <div class="lang-option" onclick="setLang('ru')">🇷🇺 Русский</div>
+          <div class="lang-option" onclick="setLang('zh')">🇨🇳 中文</div>
+          <div class="lang-option" onclick="setLang('ja')">🇯🇵 日本語</div>
+          <div class="lang-option" onclick="setLang('ko')">🇰🇷 한국어</div>
+          <div class="lang-option" onclick="setLang('ar')">🇸🇦 العربية</div>
+          <div class="lang-option" onclick="setLang('tr')">🇹🇷 Türkçe</div>
+          <div class="lang-option" onclick="setLang('it')">🇮🇹 Italiano</div>
+          <div class="lang-option" onclick="setLang('pl')">🇵🇱 Polski</div>
+        </div>
+      </div>
+      <button class="connect-btn" onclick="connectWallet()" id="walletBtn">🦊 Connect Wallet</button>
+    </div>
   </nav>
 
   <!-- HERO -->
   <div class="hero">
-    <div class="hero-paws">
-      🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾
-    </div>
+    <div class="hero-paws">🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾</div>
     <div class="hero-content">
       <img src="logo.jpg" alt="BEAT Coin" class="hero-logo" />
-      <div class="hero-badge">🐾 Polygon Network · QuickSwap</div>
-      <h1>The Crypto That<br/>Saves Animals</h1>
-      <p class="hero-sub">
+      <div class="hero-badge">🐾 Polygon Network · QuickSwap · <span style="color:#10b981;">Live on Mainnet</span></div>
+      <h1 data-i18n="hero_title">The Crypto That<br/>Saves Animals</h1>
+      <p class="hero-sub" data-i18n="hero_sub">
         Every time you trade BEAT Coin, <strong>10% of transaction fees</strong> go directly to animal rescue organizations. Your investment does good.
       </p>
-      <a
-        href="https://quickswap.exchange/#/swap?outputCurrency=0xdf9e5484F664bF0374117754aafBb7db94d1C98b"
-        target="_blank"
-        class="btn-buy"
-      >
+      <a href="https://quickswap.exchange/#/swap?outputCurrency=0xdf9e5484F664bF0374117754aafBb7db94d1C98b" target="_blank" class="btn-buy">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
         </svg>
-        Buy BEAT Now
+        <span data-i18n="btn_buy">Buy BEAT Now</span>
       </a>
-      <p class="hero-note">Powered by Polygon · Low fees · Instant swaps</p>
+      <p class="hero-note" data-i18n="hero_note">Powered by Polygon · Low fees · Instant swaps</p>
+      <div class="hero-social">
+        <a href="https://www.tiktok.com/@beatcoinnew" target="_blank">🎵 TikTok</a>
+        <a href="https://t.me/beatcoinnew" target="_blank">✈️ Telegram</a>
+        <a href="https://discord.gg/beatcoin" target="_blank">💬 Discord</a>
+        <a href="https://dexscreener.com/polygon/0x301136830DEE401f4Cab267e56789e8673D3f864" target="_blank">📊 Chart</a>
+      </div>
     </div>
   </div>
 
-  <!-- STATS BAR -->
+  <!-- LIVE STATS BAR -->
   <div class="stats-bar">
     <div class="stats-inner">
       <div class="stat">
-        <div class="stat-value">10%</div>
-        <div class="stat-label">of fees to animal rescue</div>
+        <div class="stat-value" id="livePrice">Loading...</div>
+        <div class="stat-label" data-i18n="stat_price">Live Price</div>
       </div>
       <div class="stat">
-        <div class="stat-value">MATIC</div>
-        <div class="stat-label">Polygon network</div>
+        <div class="stat-value" id="liveMcap">Loading...</div>
+        <div class="stat-label" data-i18n="stat_mcap">Market Cap</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">10%</div>
+        <div class="stat-label" data-i18n="stat_fee">of fees to animal rescue</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">16+</div>
+        <div class="stat-label" data-i18n="stat_holders">Holders</div>
       </div>
       <div class="stat">
         <div class="stat-value">BEAT</div>
-        <div class="stat-label">Token symbol</div>
+        <div class="stat-label" data-i18n="stat_symbol">Token Symbol</div>
       </div>
       <div class="stat">
         <div class="stat-value">QuickSwap</div>
-        <div class="stat-label">Trade on DEX</div>
+        <div class="stat-label" data-i18n="stat_dex">Trade on DEX</div>
       </div>
     </div>
   </div>
@@ -574,113 +838,301 @@
   <section id="mission">
     <div class="mission-wrap">
       <div class="mission-text">
-        <h2>A Mission Beyond Profit</h2>
-        <p>
-          BEAT Coin was created with a simple but powerful idea: what if every crypto trade could save a life?
-        </p>
-        <p>
-          Every transaction on the BEAT Coin network contributes a portion of its fees to verified animal rescue organizations. Stray dogs, abandoned cats, injured wildlife — your trades help them find safety, care, and loving homes.
-        </p>
-        <div class="mission-highlight">
-          🐾 10% of every transaction fee supports animal rescue — automatically, transparently, on-chain.
-        </div>
+        <h2 data-i18n="mission_title">A Mission Beyond Profit</h2>
+        <p data-i18n="mission_p1">BEAT Coin was created with a simple but powerful idea: what if every crypto trade could save a life?</p>
+        <p data-i18n="mission_p2">Every transaction on the BEAT Coin network contributes a portion of its fees to verified animal rescue organizations. Stray dogs, abandoned cats, injured wildlife — your trades help them find safety, care, and loving homes.</p>
+        <div class="mission-highlight" data-i18n="mission_highlight">🐾 10% of every transaction fee supports animal rescue — automatically, transparently, on-chain.</div>
       </div>
       <div class="mission-visual">
         <div class="mission-paw">🐾</div>
         <span class="mission-percent">10%</span>
-        <div class="mission-percent-label">of transaction fees<br/>to animal rescue</div>
+        <div class="mission-percent-label" data-i18n="mission_visual_label">of transaction fees<br/>to animal rescue</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section id="impact">
+    <div class="section-tag" data-i18n="impact_tag">OUR COMMITMENT</div>
+    <h2 class="section-title" data-i18n="impact_title">Crypto with an Animal Heart</h2>
+    <p class="section-sub" data-i18n="impact_sub">Every trade makes a difference for animals who cannot speak for themselves</p>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-icon">🐾</div>
+        <h3 data-i18n="impact1_title">Animal Welfare</h3>
+        <p data-i18n="impact1_desc">Direct support for helpless and voiceless animals who cannot speak for themselves. Every BEAT transaction contributes.</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">🔍</div>
+        <h3 data-i18n="impact2_title">Transparent Giving</h3>
+        <p data-i18n="impact2_desc">All donations are publicly verifiable on the blockchain. Every contribution is traceable and transparent.</p>
+      </div>
+      <div class="impact-card">
+        <div class="impact-icon">📈</div>
+        <h3 data-i18n="impact3_title">Grow Together</h3>
+        <p data-i18n="impact3_desc">As BEAT grows in value, so does our ability to make a meaningful impact for animals worldwide.</p>
       </div>
     </div>
   </section>
 
   <!-- HOW IT WORKS -->
   <section id="how">
-    <h2 class="section-title">How It Works</h2>
-    <p class="section-sub">Getting started with BEAT Coin takes less than 5 minutes</p>
+    <div class="section-tag" data-i18n="how_tag">GET STARTED</div>
+    <h2 class="section-title" data-i18n="how_title">How It Works</h2>
+    <p class="section-sub" data-i18n="how_sub">Getting started with BEAT Coin takes less than 5 minutes</p>
     <div class="steps">
       <div class="step-card">
         <div class="step-icon">🦊</div>
-        <div class="step-num">Step 1</div>
-        <h3>Get a Wallet</h3>
-        <p>Download MetaMask and add the Polygon network. It's free and takes 2 minutes.</p>
+        <div class="step-num" data-i18n="step1_num">Step 1</div>
+        <h3 data-i18n="step1_title">Get a Wallet</h3>
+        <p data-i18n="step1_desc">Download MetaMask and add the Polygon network. It's free and takes 2 minutes.</p>
       </div>
       <div class="step-card">
         <div class="step-icon">💜</div>
-        <div class="step-num">Step 2</div>
-        <h3>Get MATIC</h3>
-        <p>Buy MATIC (Polygon) on any exchange like Binance or Coinbase and send it to your wallet.</p>
+        <div class="step-num" data-i18n="step2_num">Step 2</div>
+        <h3 data-i18n="step2_title">Get POL</h3>
+        <p data-i18n="step2_desc">Buy POL (MATIC) on any exchange like Binance or Coinbase and send it to your wallet.</p>
       </div>
       <div class="step-card">
         <div class="step-icon">🔄</div>
-        <div class="step-num">Step 3</div>
-        <h3>Swap on QuickSwap</h3>
-        <p>Go to QuickSwap, paste the BEAT contract address, and swap MATIC for BEAT.</p>
+        <div class="step-num" data-i18n="step3_num">Step 3</div>
+        <h3 data-i18n="step3_title">Swap on QuickSwap</h3>
+        <p data-i18n="step3_desc">Go to QuickSwap, paste the BEAT contract address, and swap POL for BEAT.</p>
       </div>
       <div class="step-card">
         <div class="step-icon">🐾</div>
-        <div class="step-num">Step 4</div>
-        <h3>You're Saving Lives</h3>
-        <p>Every trade you make contributes 10% of fees to animal rescue. Welcome to the BEAT family!</p>
+        <div class="step-num" data-i18n="step4_num">Step 4</div>
+        <h3 data-i18n="step4_title">You're Saving Lives</h3>
+        <p data-i18n="step4_desc">Every trade you make contributes 10% of fees to animal rescue. Welcome to the BEAT family!</p>
       </div>
     </div>
   </section>
 
   <!-- TOKENOMICS -->
   <section id="tokenomics">
-    <h2 class="section-title">Tokenomics</h2>
-    <p class="section-sub">Transparent, simple, and built for impact</p>
+    <div class="section-tag" data-i18n="token_tag">DISTRIBUTION</div>
+    <h2 class="section-title" data-i18n="token_title">Tokenomics</h2>
+    <p class="section-sub" data-i18n="token_sub">Transparent, simple, and built for impact</p>
     <div class="token-grid">
       <div class="token-card">
-        <div class="t-label">Network</div>
+        <div class="t-label" data-i18n="t_network">Network</div>
         <div class="t-value">Polygon</div>
       </div>
       <div class="token-card">
-        <div class="t-label">DEX</div>
+        <div class="t-label" data-i18n="t_dex">DEX</div>
         <div class="t-value">QuickSwap</div>
       </div>
       <div class="token-card">
-        <div class="t-label">Transaction Fee</div>
+        <div class="t-label" data-i18n="t_fee">Transaction Fee</div>
         <div class="t-value">10% to Rescue</div>
       </div>
       <div class="token-card">
-        <div class="t-label">Symbol</div>
+        <div class="t-label" data-i18n="t_symbol">Symbol</div>
         <div class="t-value">BEAT</div>
       </div>
       <div class="token-card">
-        <div class="t-label">Contract</div>
-        <div class="t-value" style="font-size:0.75rem; word-break:break-all;">0xdf9e5484F664bF0374117754aafBb7db94d1C98b</div>
+        <div class="t-label" data-i18n="t_supply">Total Supply</div>
+        <div class="t-value">881,323</div>
       </div>
       <div class="token-card">
-        <div class="t-label">Pair</div>
-        <div class="t-value">BEAT / WPOL</div>
+        <div class="t-label" data-i18n="t_decimals">Decimals</div>
+        <div class="t-value">18</div>
+      </div>
+      <div class="token-card">
+        <div class="t-label" data-i18n="t_standard">Standard</div>
+        <div class="t-value">ERC-20</div>
+      </div>
+      <div class="token-card">
+        <div class="t-label" data-i18n="t_contract">Contract</div>
+        <div class="t-value" style="font-size:0.7rem; word-break:break-all;">0xdf9e5484F664bF0374117754aafBb7db94d1C98b</div>
+      </div>
+    </div>
+    <div class="token-dist">
+      <h3 data-i18n="dist_title">Token Distribution</h3>
+      <div class="dist-row">
+        <div class="dist-label" data-i18n="dist_circ">Circulating Supply</div>
+        <div class="dist-bar-wrap"><div class="dist-bar" style="width:85%"></div></div>
+        <div class="dist-pct">85%</div>
+      </div>
+      <div class="dist-row">
+        <div class="dist-label" data-i18n="dist_burned">Burned</div>
+        <div class="dist-bar-wrap"><div class="dist-bar" style="width:5%;background:linear-gradient(90deg,#ef4444,#f97316)"></div></div>
+        <div class="dist-pct" style="color:#ef4444">5%</div>
+      </div>
+      <div class="dist-row">
+        <div class="dist-label" data-i18n="dist_lp">Liquidity Pool</div>
+        <div class="dist-bar-wrap"><div class="dist-bar" style="width:5%;background:linear-gradient(90deg,#10b981,#06b6d4)"></div></div>
+        <div class="dist-pct" style="color:#10b981">5%</div>
+      </div>
+      <div class="dist-row">
+        <div class="dist-label" data-i18n="dist_community">Community</div>
+        <div class="dist-bar-wrap"><div class="dist-bar" style="width:3%;background:linear-gradient(90deg,#8b5cf6,#a78bfa)"></div></div>
+        <div class="dist-pct" style="color:#a78bfa">3%</div>
+      </div>
+      <div class="dist-row">
+        <div class="dist-label" data-i18n="dist_team">Team</div>
+        <div class="dist-bar-wrap"><div class="dist-bar" style="width:2%;background:linear-gradient(90deg,#6366f1,#818cf8)"></div></div>
+        <div class="dist-pct" style="color:#818cf8">2%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section id="roadmap">
+    <div class="section-tag" data-i18n="road_tag">OUR JOURNEY</div>
+    <h2 class="section-title" data-i18n="road_title">Roadmap</h2>
+    <p class="section-sub" data-i18n="road_sub">Where we've been and where we're going</p>
+    <div class="roadmap">
+      <div class="road-card done">
+        <div class="road-phase" data-i18n="road_phase1">Phase 1</div>
+        <div class="road-status" data-i18n="road_done">✓ Completed</div>
+        <h3 data-i18n="road1_title">Foundation</h3>
+        <ul class="road-items">
+          <li data-i18n="road1_1">Token deployment on Polygon</li>
+          <li data-i18n="road1_2">QuickSwap liquidity pool</li>
+          <li data-i18n="road1_3">DEXTools & DEXScreener listing</li>
+          <li data-i18n="road1_4">Community launch</li>
+        </ul>
+      </div>
+      <div class="road-card progress">
+        <div class="road-phase" data-i18n="road_phase2">Phase 2</div>
+        <div class="road-status" data-i18n="road_progress">→ In Progress</div>
+        <h3 data-i18n="road2_title">Growth</h3>
+        <ul class="road-items">
+          <li data-i18n="road2_1">Community growth campaign</li>
+          <li data-i18n="road2_2">First animal welfare donation</li>
+          <li data-i18n="road2_3">CoinGecko / CMC listing</li>
+          <li data-i18n="road2_4">Giveaway program</li>
+        </ul>
+      </div>
+      <div class="road-card upcoming">
+        <div class="road-phase" data-i18n="road_phase3">Phase 3</div>
+        <div class="road-status" data-i18n="road_upcoming">○ Upcoming</div>
+        <h3 data-i18n="road3_title">Expansion</h3>
+        <ul class="road-items">
+          <li data-i18n="road3_1">CEX listing</li>
+          <li data-i18n="road3_2">NFT collection</li>
+          <li data-i18n="road3_3">DAO governance</li>
+          <li data-i18n="road3_4">Animal rescue partnerships</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESCUE FUND -->
+  <section id="rescue">
+    <div class="section-tag" data-i18n="rescue_tag">TRANSPARENCY</div>
+    <h2 class="section-title" data-i18n="rescue_title">Animal Rescue Fund</h2>
+    <p class="section-sub" data-i18n="rescue_sub">Every trade on QuickSwap generates a 0.3% fee. We allocate 10% of those fees to animal rescue.</p>
+    <div class="rescue-wrap">
+      <div class="rescue-calc">
+        <div class="calc-box">
+          <div class="c-label" data-i18n="calc_vol">24h Volume</div>
+          <div class="c-value" id="calcVol">$0</div>
+        </div>
+        <div class="calc-op">×</div>
+        <div class="calc-box">
+          <div class="c-label" data-i18n="calc_fee">DEX Fee</div>
+          <div class="c-value">0.3%</div>
+        </div>
+        <div class="calc-op">×</div>
+        <div class="calc-box">
+          <div class="c-label" data-i18n="calc_alloc">Rescue Allocation</div>
+          <div class="c-value">10%</div>
+        </div>
+        <div class="calc-op">=</div>
+        <div class="rescue-result">
+          <div class="c-label" data-i18n="calc_result">Animal Rescue Fund</div>
+          <div class="c-value" id="calcResult">$0.00</div>
+        </div>
+      </div>
+      <p class="rescue-note" data-i18n="rescue_note">Data refreshes every 60 seconds · Source: DEXScreener API · Updated live</p>
+
+      <div class="rescue-wallet">
+        <h4 data-i18n="wallet_title">🐾 Donation Wallet</h4>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:10px;" data-i18n="wallet_desc">This is the public wallet designated to receive 10% of DEX transaction fees for animal welfare organizations.</p>
+        <div class="wallet-addr">0xEF4F03E9d2F78d2898BFBb1633b1Dbed1317e3dA</div>
+        <button class="copy-btn" onclick="copyWallet()">📋 Copy</button>
+        <a href="https://polygonscan.com/address/0xEF4F03E9d2F78d2898BFBb1633b1Dbed1317e3dA" target="_blank" class="copy-btn" style="text-decoration:none;">🔍 PolygonScan</a>
+        <div>
+          <span class="donation-badge">✅ First Donation Confirmed — 500 BEAT · Mar 1, 2026</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GIVEAWAY -->
+  <section id="giveaway">
+    <div class="section-tag" data-i18n="giveaway_tag">COMMUNITY REWARDS</div>
+    <h2 class="section-title" data-i18n="giveaway_title">Giveaway History</h2>
+    <p class="section-sub" data-i18n="giveaway_sub">Transparent record of all community giveaways — every winner verifiable on-chain</p>
+    <div class="giveaway-wrap">
+      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:8px;">
+        <div>
+          <div style="font-weight:700;font-size:1rem;" data-i18n="giveaway1_title">Giveaway #1 — Engagement Reward</div>
+          <div style="font-size:0.8rem;color:var(--text-muted);">Mar 2, 2026 · Polygon Network · <span style="color:#10b981;">✓ Completed</span></div>
+        </div>
+        <div style="font-size:0.88rem;color:var(--accent);font-weight:700;">1,000 BEAT Total</div>
+      </div>
+      <table class="giveaway-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th data-i18n="th_handle">Handle</th>
+            <th data-i18n="th_views">Views</th>
+            <th data-i18n="th_reward">Reward</th>
+            <th data-i18n="th_status">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="rank">1</td><td class="handle">@iSolCryptoo</td><td>50</td><td class="reward">100 BEAT</td><td class="check">✓</td></tr>
+          <tr><td class="rank">2</td><td class="handle">@cryptoxyn_</td><td>27</td><td class="reward">100 BEAT</td><td class="check">✓</td></tr>
+          <tr><td class="rank">3</td><td class="handle">@WillowAckerman_</td><td>22</td><td class="reward">100 BEAT</td><td class="check">✓</td></tr>
+          <tr><td class="rank">4</td><td class="handle">@0xAmmyz</td><td>21</td><td class="reward">100 BEAT</td><td class="check">✓</td></tr>
+          <tr><td class="rank">5</td><td class="handle">@Slimzy455</td><td>18</td><td class="reward">100 BEAT</td><td class="check">✓</td></tr>
+          <tr><td class="rank">6</td><td class="handle">@NoFaceNoName</td><td>15</td><td class="reward">100 BEAT</td><td class="check">✓</td></tr>
+          <tr><td class="rank">7</td><td class="handle">@DegenLegend</td><td>12</td><td class="reward">100 BEAT</td><td class="check">✓</td></tr>
+          <tr><td class="rank">8</td><td class="handle">@TiadiSukris</td><td>12</td><td class="reward">100 BEAT</td><td class="check">✓</td></tr>
+          <tr><td class="rank">9</td><td class="handle">@comedaofficial</td><td>10</td><td class="reward">100 BEAT</td><td class="check">✓</td></tr>
+          <tr><td class="rank">10</td><td class="handle">@uncaloneng</td><td>8</td><td class="reward">100 BEAT</td><td class="check">✓</td></tr>
+        </tbody>
+      </table>
+      <div style="text-align:center;margin-top:8px;">
+        <a href="https://polygonscan.com" target="_blank" style="font-size:0.8rem;color:var(--text-muted);text-decoration:none;" data-i18n="verify_chain">🔍 Verify all transfers on PolygonScan</a>
+      </div>
+
+      <div class="giveaway-live">
+        <h3>🚨 <span data-i18n="giveaway2_title">Giveaway #2 — LIVE NOW!</span></h3>
+        <p data-i18n="giveaway2_desc">Top 10 sharers this week win 100 BEAT each. Share BEAT Coin on Twitter/X. The 10 accounts with the most impressions by the deadline win!</p>
+        <div class="countdown">
+          <div class="cd-box"><span class="cd-num" id="cd-days">04</span><span class="cd-label" data-i18n="cd_days">Days</span></div>
+          <div class="cd-box"><span class="cd-num" id="cd-hours">19</span><span class="cd-label" data-i18n="cd_hours">Hours</span></div>
+          <div class="cd-box"><span class="cd-num" id="cd-mins">29</span><span class="cd-label" data-i18n="cd_mins">Min</span></div>
+          <div class="cd-box"><span class="cd-num" id="cd-secs">00</span><span class="cd-label" data-i18n="cd_secs">Sec</span></div>
+        </div>
+        <a href="https://twitter.com/beatcoinnew" target="_blank" class="btn-buy" style="font-size:0.95rem;padding:12px 28px;animation:none;">
+          🐦 <span data-i18n="enter_twitter">Enter on Twitter @beatcoinnew</span>
+        </a>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
   <div class="cta-section">
-    <h2>Ready to Make a Difference?</h2>
-    <p>Join the BEAT Coin community and help rescue animals with every trade.</p>
+    <h2 data-i18n="cta_title">Ready to Make a Difference?</h2>
+    <p data-i18n="cta_sub">Join the BEAT Coin community and help rescue animals with every trade.</p>
     <div class="social-row">
-      <a href="https://www.tiktok.com/@beatcoinnew" target="_blank" class="social-btn">
-        🎵 TikTok
-      </a>
-      <a href="https://dexscreener.com/polygon/0x301136830DEE401f4Cab267e56789e8673D3f864" target="_blank" class="social-btn">
-        📊 DEXScreener
-      </a>
-      <a href="https://quickswap.exchange/#/swap?outputCurrency=0xdf9e5484F664bF0374117754aafBb7db94d1C98b" target="_blank" class="social-btn">
-        🔄 QuickSwap
-      </a>
+      <a href="https://www.tiktok.com/@beatcoinnew" target="_blank" class="social-btn">🎵 TikTok</a>
+      <a href="https://t.me/beatcoinnew" target="_blank" class="social-btn">✈️ Telegram</a>
+      <a href="https://discord.gg/beatcoin" target="_blank" class="social-btn">💬 Discord</a>
+      <a href="https://dexscreener.com/polygon/0x301136830DEE401f4Cab267e56789e8673D3f864" target="_blank" class="social-btn">📊 DEXScreener</a>
+      <a href="https://quickswap.exchange/#/swap?outputCurrency=0xdf9e5484F664bF0374117754aafBb7db94d1C98b" target="_blank" class="social-btn">🔄 QuickSwap</a>
     </div>
-    <a
-      href="https://quickswap.exchange/#/swap?outputCurrency=0xdf9e5484F664bF0374117754aafBb7db94d1C98b"
-      target="_blank"
-      class="btn-buy"
-    >
+    <a href="https://quickswap.exchange/#/swap?outputCurrency=0xdf9e5484F664bF0374117754aafBb7db94d1C98b" target="_blank" class="btn-buy">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
       </svg>
-      Buy BEAT Now
+      <span data-i18n="btn_buy">Buy BEAT Now</span>
     </a>
   </div>
 
@@ -691,19 +1143,176 @@
       <span>BEAT Coin</span>
     </div>
     <div class="footer-links">
-      <a href="https://quickswap.exchange/#/swap?outputCurrency=0xdf9e5484F664bF0374117754aafBb7db94d1C98b" target="_blank">Buy BEAT</a>
+      <a href="https://quickswap.exchange/#/swap?outputCurrency=0xdf9e5484F664bF0374117754aafBb7db94d1C98b" target="_blank" data-i18n="nav_buy">Buy BEAT</a>
       <a href="https://dexscreener.com/polygon/0x301136830DEE401f4Cab267e56789e8673D3f864" target="_blank">DEXScreener</a>
       <a href="https://www.tiktok.com/@beatcoinnew" target="_blank">TikTok</a>
-      <a href="#mission">Mission</a>
-      <a href="#how">How It Works</a>
+      <a href="https://t.me/beatcoinnew" target="_blank">Telegram</a>
+      <a href="https://discord.gg/beatcoin" target="_blank">Discord</a>
+      <a href="#mission" data-i18n="nav_mission">Mission</a>
+      <a href="#roadmap" data-i18n="nav_roadmap">Roadmap</a>
+      <a href="#rescue" data-i18n="nav_rescue">Rescue Fund</a>
     </div>
     <div class="footer-contract">
-      Contract: 0xdf9e5484F664bF0374117754aafBb7db94d1C98b · Polygon Network
+      Contract: 0xdf9e5484F664bF0374117754aafBb7db94d1C98b · Polygon Network · Chain ID: 137
     </div>
-    <div class="footer-disclaimer">
+    <div class="footer-disclaimer" data-i18n="disclaimer">
       Cryptocurrency investments carry risk. This is not financial advice. BEAT Coin is a community-driven project. Always do your own research before investing.
     </div>
   </footer>
 
-</body>
-</html>
+  <script>
+    // ── TRANSLATIONS ──
+    const translations = {
+      en: {
+        nav_mission:"Mission", nav_how:"How It Works", nav_roadmap:"Roadmap",
+        nav_tokenomics:"Tokenomics", nav_rescue:"Rescue Fund", nav_buy:"Buy BEAT",
+        hero_title:"The Crypto That<br/>Saves Animals",
+        hero_sub:"Every time you trade BEAT Coin, <strong>10% of transaction fees</strong> go directly to animal rescue organizations. Your investment does good.",
+        btn_buy:"Buy BEAT Now", hero_note:"Powered by Polygon · Low fees · Instant swaps",
+        stat_price:"Live Price", stat_mcap:"Market Cap", stat_fee:"of fees to animal rescue",
+        stat_holders:"Holders", stat_symbol:"Token Symbol", stat_dex:"Trade on DEX",
+        mission_title:"A Mission Beyond Profit",
+        mission_p1:"BEAT Coin was created with a simple but powerful idea: what if every crypto trade could save a life?",
+        mission_p2:"Every transaction on the BEAT Coin network contributes a portion of its fees to verified animal rescue organizations. Stray dogs, abandoned cats, injured wildlife — your trades help them find safety, care, and loving homes.",
+        mission_highlight:"🐾 10% of every transaction fee supports animal rescue — automatically, transparently, on-chain.",
+        mission_visual_label:"of transaction fees<br/>to animal rescue",
+        impact_tag:"OUR COMMITMENT", impact_title:"Crypto with an Animal Heart",
+        impact_sub:"Every trade makes a difference for animals who cannot speak for themselves",
+        impact1_title:"Animal Welfare", impact1_desc:"Direct support for helpless and voiceless animals who cannot speak for themselves. Every BEAT transaction contributes.",
+        impact2_title:"Transparent Giving", impact2_desc:"All donations are publicly verifiable on the blockchain. Every contribution is traceable and transparent.",
+        impact3_title:"Grow Together", impact3_desc:"As BEAT grows in value, so does our ability to make a meaningful impact for animals worldwide.",
+        how_tag:"GET STARTED", how_title:"How It Works", how_sub:"Getting started with BEAT Coin takes less than 5 minutes",
+        step1_num:"Step 1", step1_title:"Get a Wallet", step1_desc:"Download MetaMask and add the Polygon network. It's free and takes 2 minutes.",
+        step2_num:"Step 2", step2_title:"Get POL", step2_desc:"Buy POL (MATIC) on any exchange like Binance or Coinbase and send it to your wallet.",
+        step3_num:"Step 3", step3_title:"Swap on QuickSwap", step3_desc:"Go to QuickSwap, paste the BEAT contract address, and swap POL for BEAT.",
+        step4_num:"Step 4", step4_title:"You're Saving Lives", step4_desc:"Every trade you make contributes 10% of fees to animal rescue. Welcome to the BEAT family!",
+        token_tag:"DISTRIBUTION", token_title:"Tokenomics", token_sub:"Transparent, simple, and built for impact",
+        t_network:"Network", t_dex:"DEX", t_fee:"Transaction Fee", t_symbol:"Symbol",
+        t_supply:"Total Supply", t_decimals:"Decimals", t_standard:"Standard", t_contract:"Contract",
+        dist_title:"Token Distribution", dist_circ:"Circulating Supply", dist_burned:"Burned",
+        dist_lp:"Liquidity Pool", dist_community:"Community", dist_team:"Team",
+        road_tag:"OUR JOURNEY", road_title:"Roadmap", road_sub:"Where we've been and where we're going",
+        road_phase1:"Phase 1", road_phase2:"Phase 2", road_phase3:"Phase 3",
+        road_done:"✓ Completed", road_progress:"→ In Progress", road_upcoming:"○ Upcoming",
+        road1_title:"Foundation", road1_1:"Token deployment on Polygon", road1_2:"QuickSwap liquidity pool", road1_3:"DEXTools & DEXScreener listing", road1_4:"Community launch",
+        road2_title:"Growth", road2_1:"Community growth campaign", road2_2:"First animal welfare donation", road2_3:"CoinGecko / CMC listing", road2_4:"Giveaway program",
+        road3_title:"Expansion", road3_1:"CEX listing", road3_2:"NFT collection", road3_3:"DAO governance", road3_4:"Animal rescue partnerships",
+        rescue_tag:"TRANSPARENCY", rescue_title:"Animal Rescue Fund", rescue_sub:"Every trade on QuickSwap generates a 0.3% fee. We allocate 10% of those fees to animal rescue.",
+        calc_vol:"24h Volume", calc_fee:"DEX Fee", calc_alloc:"Rescue Allocation", calc_result:"Animal Rescue Fund",
+        rescue_note:"Data refreshes every 60 seconds · Source: DEXScreener API · Updated live",
+        wallet_title:"🐾 Donation Wallet", wallet_desc:"This is the public wallet designated to receive 10% of DEX transaction fees for animal welfare organizations.",
+        giveaway_tag:"COMMUNITY REWARDS", giveaway_title:"Giveaway History", giveaway_sub:"Transparent record of all community giveaways — every winner verifiable on-chain",
+        giveaway1_title:"Giveaway #1 — Engagement Reward",
+        th_handle:"Handle", th_views:"Views", th_reward:"Reward", th_status:"Status",
+        verify_chain:"🔍 Verify all transfers on PolygonScan",
+        giveaway2_title:"Giveaway #2 — LIVE NOW!",
+        giveaway2_desc:"Top 10 sharers this week win 100 BEAT each. Share BEAT Coin on Twitter/X. The 10 accounts with the most impressions by the deadline win!",
+        cd_days:"Days", cd_hours:"Hours", cd_mins:"Min", cd_secs:"Sec",
+        enter_twitter:"Enter on Twitter @beatcoinnew",
+        cta_title:"Ready to Make a Difference?", cta_sub:"Join the BEAT Coin community and help rescue animals with every trade.",
+        disclaimer:"Cryptocurrency investments carry risk. This is not financial advice. BEAT Coin is a community-driven project. Always do your own research before investing."
+      },
+      he: {
+        nav_mission:"מטרה", nav_how:"איך זה עובד", nav_roadmap:"מפת דרכים",
+        nav_tokenomics:"טוקנומיקס", nav_rescue:"קרן הצלה", nav_buy:"קנה BEAT",
+        hero_title:"הקריפטו שמציל<br/>בעלי חיים",
+        hero_sub:"בכל פעם שאתה סוחר BEAT Coin, <strong>10% מעמלות העסקאות</strong> הולכים ישירות לארגוני הצלת בעלי חיים.",
+        btn_buy:"קנה BEAT עכשיו", hero_note:"מופעל על Polygon · עמלות נמוכות · החלפות מיידיות",
+        stat_price:"מחיר חי", stat_mcap:"שווי שוק", stat_fee:"מהעמלות להצלת בעלי חיים",
+        stat_holders:"מחזיקים", stat_symbol:"סמל הטוקן", stat_dex:"סחר ב-DEX",
+        mission_title:"מטרה מעבר לרווח",
+        mission_p1:"BEAT Coin נוצר עם רעיון פשוט אך עוצמתי: מה אם כל עסקת קריפטו יכולה להציל חיים?",
+        mission_p2:"כל עסקה ברשת BEAT Coin תורמת חלק מהעמלות לארגוני הצלת בעלי חיים מאומתים. כלבים משוטטים, חתולים נטושים, חיות בר פצועות — העסקאות שלך עוזרות להם.",
+        mission_highlight:"🐾 10% מכל עמלת עסקה תומכת בהצלת בעלי חיים — אוטומטית, שקופה, על-שרשרת.",
+        mission_visual_label:"מעמלות העסקאות<br/>להצלת בעלי חיים",
+        impact_tag:"המחויבות שלנו", impact_title:"קריפטו עם לב של בעל חיים",
+        impact_sub:"כל עסקה עושה הבדל לבעלי חיים שלא יכולים לדבר בעד עצמם",
+        impact1_title:"רווחת בעלי חיים", impact1_desc:"תמיכה ישירה בבעלי חיים חסרי ישע שלא יכולים לדבר בעד עצמם.",
+        impact2_title:"תרומה שקופה", impact2_desc:"כל התרומות ניתנות לאימות ציבורי בבלוקצ'יין. כל תרומה ניתנת למעקב.",
+        impact3_title:"צמיחה משותפת", impact3_desc:"ככל ש-BEAT גדל בערכו, כך גדלת יכולתנו לעשות השפעה משמעותית.",
+        how_tag:"תחילת הדרך", how_title:"איך זה עובד", how_sub:"להתחיל עם BEAT Coin לוקח פחות מ-5 דקות",
+        step1_num:"שלב 1", step1_title:"קבל ארנק", step1_desc:"הורד MetaMask והוסף את רשת Polygon. זה חינמי ולוקח 2 דקות.",
+        step2_num:"שלב 2", step2_title:"קבל POL", step2_desc:"קנה POL (MATIC) בכל בורסה כמו Binance ושלח לארנק שלך.",
+        step3_num:"שלב 3", step3_title:"החלף ב-QuickSwap", step3_desc:"כנס ל-QuickSwap, הדבק את כתובת החוזה של BEAT, והחלף POL ב-BEAT.",
+        step4_num:"שלב 4", step4_title:"אתה מציל חיים", step4_desc:"כל עסקה שאתה עושה תורמת 10% מהעמלות להצלת בעלי חיים. ברוך הבא למשפחת BEAT!",
+        token_tag:"הפצה", token_title:"טוקנומיקס", token_sub:"שקוף, פשוט, ובנוי להשפעה",
+        t_network:"רשת", t_dex:"DEX", t_fee:"עמלת עסקה", t_symbol:"סמל",
+        t_supply:"היצע כולל", t_decimals:"ספרות עשרוניות", t_standard:"תקן", t_contract:"חוזה",
+        dist_title:"הפצת הטוקן", dist_circ:"היצע במחזור", dist_burned:"נשרף",
+        dist_lp:"בריכת נזילות", dist_community:"קהילה", dist_team:"צוות",
+        road_tag:"המסע שלנו", road_title:"מפת דרכים", road_sub:"איפה היינו ולאן אנחנו הולכים",
+        road_phase1:"שלב 1", road_phase2:"שלב 2", road_phase3:"שלב 3",
+        road_done:"✓ הושלם", road_progress:"→ בתהליך", road_upcoming:"○ בקרוב",
+        road1_title:"יסוד", road1_1:"פריסת הטוקן על Polygon", road1_2:"בריכת נזילות QuickSwap", road1_3:"רישום ב-DEXTools ו-DEXScreener", road1_4:"השקת קהילה",
+        road2_title:"צמיחה", road2_1:"קמפיין צמיחת קהילה", road2_2:"תרומה ראשונה לרווחת בעלי חיים", road2_3:"רישום ב-CoinGecko / CMC", road2_4:"תוכנית מתנות",
+        road3_title:"התרחבות", road3_1:"רישום ב-CEX", road3_2:"קולקציית NFT", road3_3:"ממשל DAO", road3_4:"שותפויות הצלת בעלי חיים",
+        rescue_tag:"שקיפות", rescue_title:"קרן הצלת בעלי חיים", rescue_sub:"כל עסקה ב-QuickSwap מייצרת עמלה של 0.3%. אנחנו מקצים 10% מהעמלות הללו להצלת בעלי חיים.",
+        calc_vol:"נפח 24 שעות", calc_fee:"עמלת DEX", calc_alloc:"הקצאת הצלה", calc_result:"קרן הצלת בעלי חיים",
+        rescue_note:"הנתונים מתרעננים כל 60 שניות · מקור: DEXScreener API · מעודכן בזמן אמת",
+        wallet_title:"🐾 ארנק תרומות", wallet_desc:"זהו הארנק הציבורי המיועד לקבל 10% מעמלות עסקאות ה-DEX לארגוני רווחת בעלי חיים.",
+        giveaway_tag:"פרסי קהילה", giveaway_title:"היסטוריית מתנות", giveaway_sub:"רשומה שקופה של כל מתנות הקהילה — כל זוכה ניתן לאימות על-שרשרת",
+        giveaway1_title:"מתנה #1 — פרס מעורבות",
+        th_handle:"שם משתמש", th_views:"צפיות", th_reward:"פרס", th_status:"סטטוס",
+        verify_chain:"🔍 אמת את כל ההעברות ב-PolygonScan",
+        giveaway2_title:"מתנה #2 — פעיל עכשיו!",
+        giveaway2_desc:"10 המשתפים המובילים השבוע מנצחים 100 BEAT כל אחד. שתף BEAT Coin ב-Twitter/X. 10 החשבונות עם הכי הרבה חשיפות עד המועד האחרון מנצחים!",
+        cd_days:"ימים", cd_hours:"שעות", cd_mins:"דקות", cd_secs:"שניות",
+        enter_twitter:"הירשם ב-Twitter @beatcoinnew",
+        cta_title:"מוכן לעשות הבדל?", cta_sub:"הצטרף לקהילת BEAT Coin ועזור להציל בעלי חיים עם כל עסקה.",
+        disclaimer:"השקעות בקריפטו כרוכות בסיכון. זו אינה עצת השקעה. BEAT Coin הוא פרויקט מונע קהילה. תמיד עשה מחקר עצמאי לפני השקעה."
+      },
+      es: {
+        nav_mission:"Misión", nav_how:"Cómo Funciona", nav_roadmap:"Hoja de Ruta",
+        nav_tokenomics:"Tokenomics", nav_rescue:"Fondo de Rescate", nav_buy:"Comprar BEAT",
+        hero_title:"La Cripto que<br/>Salva Animales",
+        hero_sub:"Cada vez que operas BEAT Coin, <strong>el 10% de las comisiones</strong> va directamente a organizaciones de rescate animal.",
+        btn_buy:"Comprar BEAT Ahora", hero_note:"Impulsado por Polygon · Comisiones bajas · Swaps instantáneos",
+        stat_price:"Precio en Vivo", stat_mcap:"Cap. de Mercado", stat_fee:"de comisiones al rescate animal",
+        stat_holders:"Poseedores", stat_symbol:"Símbolo del Token", stat_dex:"Opera en DEX",
+        mission_title:"Una Misión Más Allá del Beneficio",
+        mission_p1:"BEAT Coin fue creado con una idea simple pero poderosa: ¿qué pasaría si cada operación cripto pudiera salvar una vida?",
+        mission_p2:"Cada transacción en la red BEAT Coin contribuye con una parte de sus comisiones a organizaciones verificadas de rescate animal.",
+        mission_highlight:"🐾 El 10% de cada comisión de transacción apoya el rescate animal — automáticamente, transparentemente, on-chain.",
+        mission_visual_label:"de comisiones<br/>al rescate animal",
+        impact_tag:"NUESTRO COMPROMISO", impact_title:"Cripto con Corazón Animal",
+        impact_sub:"Cada operación marca la diferencia para animales que no pueden hablar por sí mismos",
+        impact1_title:"Bienestar Animal", impact1_desc:"Apoyo directo para animales indefensos que no pueden hablar por sí mismos.",
+        impact2_title:"Donación Transparente", impact2_desc:"Todas las donaciones son verificables públicamente en la blockchain.",
+        impact3_title:"Crecer Juntos", impact3_desc:"A medida que BEAT crece en valor, también crece nuestra capacidad de impacto.",
+        how_tag:"COMENZAR", how_title:"Cómo Funciona", how_sub:"Comenzar con BEAT Coin toma menos de 5 minutos",
+        step1_num:"Paso 1", step1_title:"Obtén una Billetera", step1_desc:"Descarga MetaMask y agrega la red Polygon. Es gratis y toma 2 minutos.",
+        step2_num:"Paso 2", step2_title:"Obtén POL", step2_desc:"Compra POL (MATIC) en cualquier exchange como Binance y envíalo a tu billetera.",
+        step3_num:"Paso 3", step3_title:"Swap en QuickSwap", step3_desc:"Ve a QuickSwap, pega la dirección del contrato BEAT y cambia POL por BEAT.",
+        step4_num:"Paso 4", step4_title:"Estás Salvando Vidas", step4_desc:"Cada operación contribuye el 10% de comisiones al rescate animal. ¡Bienvenido a la familia BEAT!",
+        token_tag:"DISTRIBUCIÓN", token_title:"Tokenomics", token_sub:"Transparente, simple y construido para el impacto",
+        t_network:"Red", t_dex:"DEX", t_fee:"Comisión de Transacción", t_symbol:"Símbolo",
+        t_supply:"Suministro Total", t_decimals:"Decimales", t_standard:"Estándar", t_contract:"Contrato",
+        dist_title:"Distribución de Tokens", dist_circ:"Suministro Circulante", dist_burned:"Quemado",
+        dist_lp:"Pool de Liquidez", dist_community:"Comunidad", dist_team:"Equipo",
+        road_tag:"NUESTRO VIAJE", road_title:"Hoja de Ruta", road_sub:"Dónde hemos estado y hacia dónde vamos",
+        road_phase1:"Fase 1", road_phase2:"Fase 2", road_phase3:"Fase 3",
+        road_done:"✓ Completado", road_progress:"→ En Progreso", road_upcoming:"○ Próximamente",
+        road1_title:"Fundación", road1_1:"Despliegue del token en Polygon", road1_2:"Pool de liquidez QuickSwap", road1_3:"Listado en DEXTools y DEXScreener", road1_4:"Lanzamiento de la comunidad",
+        road2_title:"Crecimiento", road2_1:"Campaña de crecimiento comunitario", road2_2:"Primera donación de bienestar animal", road2_3:"Listado en CoinGecko / CMC", road2_4:"Programa de sorteos",
+        road3_title:"Expansión", road3_1:"Listado en CEX", road3_2:"Colección NFT", road3_3:"Gobernanza DAO", road3_4:"Asociaciones de rescate animal",
+        rescue_tag:"TRANSPARENCIA", rescue_title:"Fondo de Rescate Animal", rescue_sub:"Cada operación en QuickSwap genera una comisión del 0.3%. Asignamos el 10% al rescate animal.",
+        calc_vol:"Volumen 24h", calc_fee:"Comisión DEX", calc_alloc:"Asignación de Rescate", calc_result:"Fondo de Rescate Animal",
+        rescue_note:"Los datos se actualizan cada 60 segundos · Fuente: DEXScreener API",
+        wallet_title:"🐾 Billetera de Donaciones", wallet_desc:"Esta es la billetera pública designada para recibir el 10% de las comisiones DEX para organizaciones de bienestar animal.",
+        giveaway_tag:"RECOMPENSAS COMUNITARIAS", giveaway_title:"Historial de Sorteos", giveaway_sub:"Registro transparente de todos los sorteos — cada ganador verificable on-chain",
+        giveaway1_title:"Sorteo #1 — Premio de Participación",
+        th_handle:"Usuario", th_views:"Vistas", th_reward:"Premio", th_status:"Estado",
+        verify_chain:"🔍 Verificar todas las transferencias en PolygonScan",
+        giveaway2_title:"Sorteo #2 — ¡EN VIVO AHORA!",
+        giveaway2_desc:"Los 10 mejores compartidores de esta semana ganan 100 BEAT cada uno. ¡Comparte BEAT Coin en Twitter/X!",
+        cd_days:"Días", cd_hours:"Horas", cd_mins:"Min", cd_secs:"Seg",
+        enter_twitter:"Participar en Twitter @beatcoinnew",
+        cta_title:"¿Listo para Marcar la Diferencia?", cta_sub:"Únete a la comunidad BEAT Coin y ayuda a rescatar animales con cada operación.",
+        disclaimer:"Las inversiones en criptomonedas conllevan riesgo. Esto no es asesoramiento financiero. Siempre haz tu propia investigación."
+      },
+      fr: { nav_mission:"Mission", nav_how:"Comment Ça Marche", nav_roadmap:"Feuille de Route", nav_tokenomics:"Tokenomics", nav_rescue:"Fonds de Sauvetage", nav_buy:"Acheter BEAT", hero_title:"La Crypto qui<br/>Sauve les Animaux", hero_sub:"Chaque fois que vous tradez BEAT Coin, <strong>10% des frais de transaction</strong> vont directement aux organisations de sauvetage animal.", btn_buy:"Acheter BEAT Maintenant", hero_note:"Propulsé par Polygon · Frais bas · Swaps instantanés", stat_price:"Prix en Direct", stat_mcap:"Cap. Marché", stat_fee:"des frais au sauvetage animal", stat_holders:"Détenteurs", stat_symbol:"Symbole du Token", stat_dex:"Trader sur DEX", mission_title:"Une Mission Au-Delà du Profit", mission_p1:"BEAT Coin a été créé avec une idée simple mais puissante : et si chaque trade crypto pouvait sauver une vie ?", mission_p2:"Chaque transaction sur le réseau BEAT Coin contribue une partie de ses frais à des organisations vérifiées de sauvetage animal.", mission_highlight:"🐾 10% de chaque frais de transaction soutient le sauvetage animal — automatiquement, transparentement, on-chain.", mission_visual_label:"des frais de transaction<br/>au sauvetage animal", impact_tag:"NOTRE ENGAGEMENT", impact_title:"Crypto avec un Cœur Animal", impact_sub:"Chaque trade fait une différence pour les animaux qui ne peuvent pas parler pour eux-mêmes", impact1_title:"Bien-être Animal", impact1_desc:"Soutien direct pour les animaux sans défense.", impact2_title:"Don Transparent", impact2_desc:"Tous les dons sont vérifiables publiquement sur la blockchain.", impact3_title:"Grandir Ensemble", impact3_desc:"Au fur et à mesure que BEAT grandit, notre capacité d'impact grandit aussi.", how_tag:"COMMENCER", how_title:"Comment Ça Marche", how_sub:"Commencer avec BEAT Coin prend moins de 5 minutes", step1_num:"Étape 1", step1_title:"Obtenir un Portefeuille", step1_desc:"Téléchargez MetaMask et ajoutez le réseau Polygon.", step2_num:"Étape 2", step2_title:"Obtenir du POL", step2_desc:"Achetez du POL (MATIC) sur n'importe quel exchange.", step3_num:"Étape 3", step3_title:"Swap sur QuickSwap", step3_desc:"Allez sur QuickSwap et échangez POL contre BEAT.", step4_num:"Étape 4", step4_title:"Vous Sauvez des Vies", step4_desc:"Chaque trade contribue 10% des frais au sauvetage animal.", token_tag:"DISTRIBUTION", token_title:"Tokenomics", token_sub:"Transparent, simple et construit pour l'impact", t_network:"Réseau", t_dex:"DEX", t_fee:"Frais de Transaction", t_symbol:"Symbole", t_supply:"Offre Totale", t_decimals:"Décimales", t_standard:"Standard", t_contract:"Contrat", dist_title:"Distribution des Tokens", dist_circ:"Offre en Circulation", dist_burned:"Brûlé", dist_lp:"Pool de Liquidité", dist_community:"Communauté", dist_team:"Équipe", road_tag:"NOTRE VOYAGE", road_title:"Feuille de Route", road_sub:"Où nous avons été et où nous allons", road_phase1:"Phase 1", road_phase2:"Phase 2", road_phase3:"Phase 3", road_done:"✓ Terminé", road_progress:"→ En Cours", road_upcoming:"○ À Venir", road1_title:"Fondation", road1_1:"Déploiement du token sur Polygon", road1_2:"Pool de liquidité QuickSwap", road1_3:"Listing DEXTools & DEXScreener", road1_4:"Lancement de la communauté", road2_title:"Croissance", road2_1:"Campagne de croissance communautaire", road2_2:"Première donation bien-être animal", road2_3:"Listing CoinGecko / CMC", road2_4:"Programme de cadeaux", road3_title:"Expansion", road3_1:"Listing CEX", road3_2:"Collection NFT", road3_3:"Gouvernance DAO", road3_4:"Partenariats de sauvetage animal", rescue_tag:"TRANSPARENCE", rescue_title:"Fonds de Sauvetage Animal", rescue_sub:"Chaque trade sur QuickSwap génère des frais de 0.3%. Nous allouons 10% au sauvetage animal.", calc_vol:"Volume 24h", calc_fee:"Frais DEX", calc_alloc:"Allocation Sauvetage", calc_result:"Fonds de Sauvetage Animal", rescue_note:"Données actualisées toutes les 60 secondes · Source: DEXScreener API", wallet_title:"🐾 Portefeuille de Dons", wallet_desc:"Ce portefeuille public est destiné à recevoir 10% des frais DEX pour les organisations de bien-être animal.", giveaway_tag:"RÉCOMPENSES COMMUNAUTAIRES", giveaway_title:"Historique des Cadeaux", giveaway_sub:"Enregistrement transparent de tous les cadeaux communautaires", giveaway1_title:"Cadeau #1 — Récompense d'Engagement", th_handle:"Pseudo", th_views:"Vues", th_reward:"Récompense", th_status:"Statut", verify_chain:"🔍 Vérifier tous les transferts sur PolygonScan", giveaway2_title:"Cadeau #2 — EN DIRECT MAINTENANT!", giveaway2_desc:"Les 10 meilleurs partageurs de la semaine gagnent 100 BEAT chacun!", cd_days:"Jours", cd_hours:"Heures", cd_mins:"Min", cd_secs:"Sec", enter_twitter:"Participer sur Twitter @beatcoinnew", cta_title:"Prêt à Faire la Différence?", cta_sub:"Rejoignez la communauté BEAT Coin et aidez à sauver des animaux avec chaque trade.", disclaimer:"Les investissements en crypto comportent des risques. Ce n'est pas un conseil financier. Faites toujours vos propres recherches." },
+      de: { nav_mission:"Mission", nav_how:"Wie es Funktioniert", nav_roadmap:"Roadmap", nav_tokenomics:"Tokenomics", nav_rescue:"Rettungsfonds", nav_buy:"BEAT Kaufen", hero_title:"Die Krypto die<br/>Tiere Rettet", hero_sub:"Jedes Mal wenn Sie BEAT Coin handeln, gehen <strong>10% der Transaktionsgebühren</strong> direkt an Tierrettungsorganisationen.", btn_buy:"BEAT Jetzt Kaufen", hero_note:"Betrieben von Polygon · Niedrige Gebühren · Sofortige Swaps", stat_price:"Live-Preis", stat_mcap:"Marktkapitalisierung", stat_fee:"der Gebühren für Tierrettung", stat_holders:"Inhaber", stat_symbol:"Token-Symbol", stat_dex:"Handel auf DEX", mission_title:"Eine Mission Jenseits des Gewinns", mission_p1:"BEAT Coin wurde mit einer einfachen aber kraftvollen Idee geschaffen.", mission_p2:"Jede Transaktion im BEAT Coin Netzwerk trägt einen Teil seiner Gebühren zu verifizierten Tierrettungsorganisationen bei.", mission_highlight:"🐾 10% jeder Transaktionsgebühr unterstützt die Tierrettung — automatisch, transparent, on-chain.", mission_visual_label:"der Transaktionsgebühren<br/>für Tierrettung", impact_tag:"UNSER ENGAGEMENT", impact_title:"Krypto mit Tierherz", impact_sub:"Jeder Handel macht einen Unterschied für Tiere", impact1_title:"Tierwohl", impact1_desc:"Direkte Unterstützung für hilflose Tiere.", impact2_title:"Transparentes Spenden", impact2_desc:"Alle Spenden sind öffentlich auf der Blockchain überprüfbar.", impact3_title:"Gemeinsam Wachsen", impact3_desc:"Je mehr BEAT wächst, desto größer wird unsere Wirkung.", how_tag:"LOSLEGEN", how_title:"Wie es Funktioniert", how_sub:"Der Einstieg bei BEAT Coin dauert weniger als 5 Minuten", step1_num:"Schritt 1", step1_title:"Wallet Holen", step1_desc:"Laden Sie MetaMask herunter und fügen Sie das Polygon-Netzwerk hinzu.", step2_num:"Schritt 2", step2_title:"POL Kaufen", step2_desc:"Kaufen Sie POL (MATIC) an einer Börse und senden Sie es an Ihre Wallet.", step3_num:"Schritt 3", step3_title:"Swap auf QuickSwap", step3_desc:"Gehen Sie zu QuickSwap und tauschen Sie POL gegen BEAT.", step4_num:"Schritt 4", step4_title:"Sie Retten Leben", step4_desc:"Jeder Handel trägt 10% der Gebühren zur Tierrettung bei.", token_tag:"VERTEILUNG", token_title:"Tokenomics", token_sub:"Transparent, einfach und für Wirkung gebaut", t_network:"Netzwerk", t_dex:"DEX", t_fee:"Transaktionsgebühr", t_symbol:"Symbol", t_supply:"Gesamtangebot", t_decimals:"Dezimalstellen", t_standard:"Standard", t_contract:"Vertrag", dist_title:"Token-Verteilung", dist_circ:"Umlaufangebot", dist_burned:"Verbrannt", dist_lp:"Liquiditätspool", dist_community:"Gemeinschaft", dist_team:"Team", road_tag:"UNSERE REISE", road_title:"Roadmap", road_sub:"Wo wir waren und wohin wir gehen", road_phase1:"Phase 1", road_phase2:"Phase 2", road_phase3:"Phase 3", road_done:"✓ Abgeschlossen", road_progress:"→ In Bearbeitung", road_upcoming:"○ Bevorstehend", road1_title:"Grundlage", road1_1:"Token-Deployment auf Polygon", road1_2:"QuickSwap Liquiditätspool", road1_3:"DEXTools & DEXScreener Listing", road1_4:"Community-Launch", road2_title:"Wachstum", road2_1:"Community-Wachstumskampagne", road2_2:"Erste Tierschutzspende", road2_3:"CoinGecko / CMC Listing", road2_4:"Giveaway-Programm", road3_title:"Expansion", road3_1:"CEX-Listing", road3_2:"NFT-Kollektion", road3_3:"DAO-Governance", road3_4:"Tierrettungspartnerschaften", rescue_tag:"TRANSPARENZ", rescue_title:"Tierrettungsfonds", rescue_sub:"Jeder Handel auf QuickSwap generiert eine Gebühr von 0,3%. Wir weisen 10% der Tierrettung zu.", calc_vol:"24h-Volumen", calc_fee:"DEX-Gebühr", calc_alloc:"Rettungszuweisung", calc_result:"Tierrettungsfonds", rescue_note:"Daten werden alle 60 Sekunden aktualisiert", wallet_title:"🐾 Spenden-Wallet", wallet_desc:"Diese öffentliche Wallet ist für den Empfang von 10% der DEX-Transaktionsgebühren bestimmt.", giveaway_tag:"COMMUNITY-BELOHNUNGEN", giveaway_title:"Giveaway-Verlauf", giveaway_sub:"Transparente Aufzeichnung aller Community-Giveaways", giveaway1_title:"Giveaway #1 — Engagement-Belohnung", th_handle:"Handle", th_views:"Aufrufe", th_reward:"Belohnung", th_status:"Status", verify_chain:"🔍 Alle Transfers auf PolygonScan überprüfen", giveaway2_title:"Giveaway #2 — JETZT LIVE!", giveaway2_desc:"Die Top 10 Teiler dieser Woche gewinnen jeweils 100 BEAT!", cd_days:"Tage", cd_hours:"Stunden", cd_mins:"Min", cd_secs:"Sek", enter_twitter:"Auf Twitter teilnehmen @beatcoinnew", cta_title:"Bereit, einen Unterschied zu Machen?", cta_sub:"Treten Sie der BEAT Coin Community bei und helfen Sie, Tiere zu retten.", disclaimer:"Kryptowährungsinvestitionen sind mit Risiken verbunden. Dies ist keine Finanzberatung." },
+      pt: { nav_mission:"Missão", nav_how:"Como Funciona", nav_roadmap:"Roteiro", nav_tokenomics:"Tokenomics", nav_rescue:"Fundo de Resgate", nav_buy:"Comprar BEAT", hero_title:"A Cripto que<br/>Salva Animais", hero_sub:"Cada vez que você negocia BEAT Coin, <strong>10% das taxas de transação</strong> vão diretamente para organizações de resgate animal.", btn_buy:"Comprar BEAT Agora", hero_note:"Desenvolvido pela Polygon · Taxas baixas · Swaps instantâneos", stat_price:"Preço ao Vivo", stat_mcap:"Cap. de Mercado", stat_fee:"das taxas para resgate animal", stat_holders:"Detentores", stat_symbol:"Símbolo do Token", stat_dex:"Negocie no DEX", mission_title:"Uma Missão Além do Lucro", mission_p1:"BEAT Coin foi criado com uma ideia simples mas poderosa.", mission_p2:"Cada transação na rede BEAT Coin contribui com parte de suas taxas para organizações verificadas de resgate animal.", mission_highlight:"🐾 10% de cada taxa de transação apoia o resgate animal — automaticamente, transparentemente, on-chain.", mission_visual_label:"das taxas de transação<br/>para resgate animal", impact_tag:"NOSSO COMPROMISSO", impact_title:"Cripto com Coração Animal", impact_sub:"Cada negociação faz diferença para animais que não podem falar por si mesmos", impact1_title:"Bem-estar Animal", impact1_desc:"Apoio direto para animais indefesos.", impact2_title:"Doação Transparente", impact2_desc:"Todas as doações são verificáveis publicamente na blockchain.", impact3_title:"Crescer Juntos", impact3_desc:"À medida que o BEAT cresce em valor, nossa capacidade de impacto também cresce.", how_tag:"COMEÇAR", how_title:"Como Funciona", how_sub:"Começar com BEAT Coin leva menos de 5 minutos", step1_num:"Passo 1", step1_title:"Obter uma Carteira", step1_desc:"Baixe o MetaMask e adicione a rede Polygon.", step2_num:"Passo 2", step2_title:"Obter POL", step2_desc:"Compre POL (MATIC) em qualquer exchange e envie para sua carteira.", step3_num:"Passo 3", step3_title:"Swap no QuickSwap", step3_desc:"Vá ao QuickSwap e troque POL por BEAT.", step4_num:"Passo 4", step4_title:"Você Está Salvando Vidas", step4_desc:"Cada negociação contribui 10% das taxas para resgate animal.", token_tag:"DISTRIBUIÇÃO", token_title:"Tokenomics", token_sub:"Transparente, simples e construído para impacto", t_network:"Rede", t_dex:"DEX", t_fee:"Taxa de Transação", t_symbol:"Símbolo", t_supply:"Fornecimento Total", t_decimals:"Decimais", t_standard:"Padrão", t_contract:"Contrato", dist_title:"Distribuição de Tokens", dist_circ:"Fornecimento Circulante", dist_burned:"Queimado", dist_lp:"Pool de Liquidez", dist_community:"Comunidade", dist_team:"Equipe", road_tag:"NOSSA JORNADA", road_title:"Roteiro", road_sub:"Onde estivemos e para onde vamos", road_phase1:"Fase 1", road_phase2:"Fase 2", road_phase3:"Fase 3", road_done:"✓ Concluído", road_progress:"→ Em Andamento", road_upcoming:"○ Em Breve", road1_title:"Fundação", road1_1:"Implantação do token na Polygon", road1_2:"Pool de liquidez QuickSwap", road1_3:"Listagem DEXTools & DEXScreener", road1_4:"Lançamento da comunidade", road2_title:"Crescimento", road2_1:"Campanha de crescimento comunitário", road2_2:"Primeira doação de bem-estar animal", road2_3:"Listagem CoinGecko / CMC", road2_4:"Programa de sorteios", road3_title:"Expansão", road3_1:"Listagem CEX", road3_2:"Coleção NFT", road3_3:"Governança DAO", road3_4:"Parcerias de resgate animal", rescue_tag:"TRANSPARÊNCIA", rescue_title:"Fundo de Resgate Animal", rescue_sub:"Cada negociação no QuickSwap gera uma taxa de 0,3%. Alocamos 10% para resgate animal.", calc_vol:"Volume 24h", calc_fee:"Taxa DEX", calc_alloc:"Alocação de Resgate", calc_result:"Fundo de Resgate Animal", rescue_note:"Dados atualizados a cada 60 segundos · Fonte: DEXScreener API", wallet_title:"🐾 Carteira de Doações", wallet_desc:"Esta carteira pública é destinada a receber 10% das taxas DEX para organizações de bem-estar animal.", giveaway_tag:"RECOMPENSAS COMUNITÁRIAS", giveaway_title:"Histórico de Sorteios", giveaway_sub:"Registro transparente de todos os sorteios comunitários", giveaway1_title:"Sorteio #1 — Prêmio de Engajamento", th_handle:"Usuário", th_views:"Visualizações", th_reward:"Prêmio", th_status:"Status", verify_chain:"🔍 Verificar todas as transferências no PolygonScan", giveaway2_title:"Sorteio #2 — AO VIVO AGORA!", giveaway2_desc:"Os 10 melhores compartilhadores da semana ganham 100 BEAT cada!", cd_days:"Dias", cd_hours:"Horas", cd_mins:"Min", cd_secs:"Seg", enter_twitter:"Participar no Twitter @beatcoinnew", cta_title:"Pronto para Fazer a Diferença?", cta_sub:"Junte-se à comunidade BEAT Coin e ajude a resgatar animais com cada negociação.", disclaimer:"Investimentos em criptomoedas envolvem riscos. Isso não é aconselhamento financeiro." },
+      ru: { nav_mission:"Миссия", nav_how:"Как Это Работает", nav_roadmap:"Дорожная Карта", nav_tokenomics:"Токеномика", nav_rescue:"Фонд Спасения", nav_buy:"Купить BEAT", hero_title:"Крипто которая<br/>Спасает Животных", hero_sub:"Каждый раз когда вы торгуете BEAT Coin, <strong>10% комиссий</strong> идут напрямую в организации по спасению животных.", btn_buy:"Купить BEAT Сейчас", hero_note:"На базе Polygon · Низкие комиссии · Мгновенные свопы", stat_price:"Живая Цена", stat_mcap:"Рыночная Кап.", stat_fee:"комиссий на спасение животных", stat_holders:"Держателей", stat_symbol:"Символ Токена", stat_dex:"Торговля на DEX", mission_title:"Миссия За Пределами Прибыли", mission_p1:"BEAT Coin создан с простой но мощной идеей.", mission_p2:"Каждая транзакция в сети BEAT Coin вносит часть комиссий в проверенные организации по спасению животных.", mission_highlight:"🐾 10% каждой комиссии поддерживает спасение животных — автоматически, прозрачно, on-chain.", mission_visual_label:"комиссий транзакций<br/>на спасение животных", impact_tag:"НАШИ ОБЯЗАТЕЛЬСТВА", impact_title:"Крипто с Животным Сердцем", impact_sub:"Каждая сделка имеет значение для животных", impact1_title:"Благополучие Животных", impact1_desc:"Прямая поддержка беспомощных животных.", impact2_title:"Прозрачные Пожертвования", impact2_desc:"Все пожертвования публично проверяемы в блокчейне.", impact3_title:"Расти Вместе", impact3_desc:"По мере роста BEAT растёт и наша способность к воздействию.", how_tag:"НАЧАТЬ", how_title:"Как Это Работает", how_sub:"Начать с BEAT Coin занимает менее 5 минут", step1_num:"Шаг 1", step1_title:"Получить Кошелёк", step1_desc:"Скачайте MetaMask и добавьте сеть Polygon.", step2_num:"Шаг 2", step2_title:"Получить POL", step2_desc:"Купите POL (MATIC) на любой бирже.", step3_num:"Шаг 3", step3_title:"Своп на QuickSwap", step3_desc:"Перейдите на QuickSwap и обменяйте POL на BEAT.", step4_num:"Шаг 4", step4_title:"Вы Спасаете Жизни", step4_desc:"Каждая сделка вносит 10% комиссий на спасение животных.", token_tag:"РАСПРЕДЕЛЕНИЕ", token_title:"Токеномика", token_sub:"Прозрачная, простая и созданная для воздействия", t_network:"Сеть", t_dex:"DEX", t_fee:"Комиссия Транзакции", t_symbol:"Символ", t_supply:"Общее Предложение", t_decimals:"Десятичные", t_standard:"Стандарт", t_contract:"Контракт", dist_title:"Распределение Токенов", dist_circ:"Оборотное Предложение", dist_burned:"Сожжено", dist_lp:"Пул Ликвидности", dist_community:"Сообщество", dist_team:"Команда", road_tag:"НАШ ПУТЬ", road_title:"Дорожная Карта", road_sub:"Где мы были и куда идём", road_phase1:"Фаза 1", road_phase2:"Фаза 2", road_phase3:"Фаза 3", road_done:"✓ Завершено", road_progress:"→ В Процессе", road_upcoming:"○ Предстоит", road1_title:"Основание", road1_1:"Развёртывание токена на Polygon", road1_2:"Пул ликвидности QuickSwap", road1_3:"Листинг DEXTools & DEXScreener", road1_4:"Запуск сообщества", road2_title:"Рост", road2_1:"Кампания роста сообщества", road2_2:"Первое пожертвование на благополучие животных", road2_3:"Листинг CoinGecko / CMC", road2_4:"Программа раздач", road3_title:"Расширение", road3_1:"Листинг CEX", road3_2:"Коллекция NFT", road3_3:"Управление DAO", road3_4:"Партнёрства по спасению животных", rescue_tag:"ПРОЗРАЧНОСТЬ", rescue_title:"Фонд Спасения Животных", rescue_sub:"Каждая сделка на QuickSwap генерирует комиссию 0,3%. Мы выделяем 10% на спасение животных.", calc_vol:"Объём за 24ч", calc_fee:"Комиссия DEX", calc_alloc:"Выделение на Спасение", calc_result:"Фонд Спасения Животных", rescue_note:"Данные обновляются каждые 60 секунд · Источник: DEXScreener API", wallet_title:"🐾 Кошелёк для Пожертвований", wallet_desc:"Этот публичный кошелёк предназначен для получения 10% комиссий DEX.", giveaway_tag:"НАГРАДЫ СООБЩЕСТВА", giveaway_title:"История Раздач", giveaway_sub:"Прозрачная запись всех раздач сообщества", giveaway1_title:"Раздача #1 — Награда за Активность", th_handle:"Аккаунт", th_views:"Просмотры", th_reward:"Награда", th_status:"Статус", verify_chain:"🔍 Проверить все переводы на PolygonScan", giveaway2_title:"Раздача #2 — СЕЙЧАС В ПРЯМОМ ЭФИРЕ!", giveaway2_desc:"Топ-10 делящихся на этой неделе выигрывают по 100 BEAT каждый!", cd_days:"Дней", cd_hours:"Часов", cd_mins:"Мин", cd_secs:"Сек", enter_twitter:"Участвовать в Twitter @beatcoinnew", cta_title:"Готовы Изменить Мир?", cta_sub:"Присоединяйтесь к сообществу BEAT Coin и помогайте спасать животных.", disclaimer:"Инвестиции в криптовалюту несут риски. Это не финансовый совет." },
+      zh: { nav_mission:"使命", nav_how:"如何运作", nav_roadmap:"路线图", nav_tokenomics:"代币经济", nav_rescue:"救援基金", nav_buy:"购买BEAT", hero_title:"拯救动物的<br/>加密货币", hero_sub:"每次交易BEAT Coin，<strong>10%的交易费</strong>直接用于动物救援组织。", btn_buy:"立即购买BEAT", hero_note:"由Polygon驱动 · 低费用 · 即时交换", stat_price:"实时价格", stat_mcap:"市值", stat_fee:"费用用于动物救援", stat_holders:"持有者", stat_symbol:"代币符号", stat_dex:"在DEX交易", mission_title:"超越利润的使命", mission_p1:"BEAT Coin诞生于一个简单而强大的理念。", mission_p2:"BEAT Coin网络上的每笔交易都将部分费用贡献给经过验证的动物救援组织。", mission_highlight:"🐾 每笔交易费的10%支持动物救援 — 自动、透明、链上。", mission_visual_label:"交易费用<br/>用于动物救援", impact_tag:"我们的承诺", impact_title:"有动物之心的加密货币", impact_sub:"每笔交易都为无法为自己发声的动物带来改变", impact1_title:"动物福利", impact1_desc:"直接支持无助的动物。", impact2_title:"透明捐赠", impact2_desc:"所有捐款在区块链上可公开验证。", impact3_title:"共同成长", impact3_desc:"随着BEAT价值增长，我们的影响力也在增长。", how_tag:"开始", how_title:"如何运作", how_sub:"开始使用BEAT Coin不到5分钟", step1_num:"第1步", step1_title:"获取钱包", step1_desc:"下载MetaMask并添加Polygon网络。", step2_num:"第2步", step2_title:"获取POL", step2_desc:"在任何交易所购买POL (MATIC)。", step3_num:"第3步", step3_title:"在QuickSwap交换", step3_desc:"前往QuickSwap，将POL换成BEAT。", step4_num:"第4步", step4_title:"您正在拯救生命", step4_desc:"每笔交易贡献10%的费用用于动物救援。", token_tag:"分配", token_title:"代币经济", token_sub:"透明、简单、为影响而建", t_network:"网络", t_dex:"DEX", t_fee:"交易费", t_symbol:"符号", t_supply:"总供应量", t_decimals:"小数位", t_standard:"标准", t_contract:"合约", dist_title:"代币分配", dist_circ:"流通供应", dist_burned:"已销毁", dist_lp:"流动性池", dist_community:"社区", dist_team:"团队", road_tag:"我们的旅程", road_title:"路线图", road_sub:"我们走过的路和未来方向", road_phase1:"阶段1", road_phase2:"阶段2", road_phase3:"阶段3", road_done:"✓ 已完成", road_progress:"→ 进行中", road_upcoming:"○ 即将到来", road1_title:"基础", road1_1:"在Polygon上部署代币", road1_2:"QuickSwap流动性池", road1_3:"DEXTools & DEXScreener上市", road1_4:"社区启动", road2_title:"增长", road2_1:"社区增长活动", road2_2:"首次动物福利捐款", road2_3:"CoinGecko / CMC上市", road2_4:"赠品计划", road3_title:"扩展", road3_1:"CEX上市", road3_2:"NFT收藏", road3_3:"DAO治理", road3_4:"动物救援合作伙伴", rescue_tag:"透明度", rescue_title:"动物救援基金", rescue_sub:"QuickSwap上的每笔交易产生0.3%的费用。我们将10%分配给动物救援。", calc_vol:"24小时交易量", calc_fee:"DEX费用", calc_alloc:"救援分配", calc_result:"动物救援基金", rescue_note:"数据每60秒刷新一次 · 来源：DEXScreener API", wallet_title:"🐾 捐款钱包", wallet_desc:"此公共钱包用于接收10%的DEX交易费用于动物福利组织。", giveaway_tag:"社区奖励", giveaway_title:"赠品历史", giveaway_sub:"所有社区赠品的透明记录", giveaway1_title:"赠品#1 — 参与奖励", th_handle:"账号", th_views:"浏览量", th_reward:"奖励", th_status:"状态", verify_chain:"🔍 在PolygonScan上验证所有转账", giveaway2_title:"赠品#2 — 现在直播!", giveaway2_desc:"本周前10名分享者各赢得100 BEAT!", cd_days:"天", cd_hours:"小时", cd_mins:"分", cd_secs:"秒", enter_twitter:"在Twitter参与 @beatcoinnew", cta_title:"准备好做出改变了吗？", cta_sub:"加入BEAT Coin社区，每次交易都帮助拯救动物。", disclaimer:"加密货币投资存在风险。这不是财务建议。" },
+      ja: { nav_mission:"ミッション", nav_how:"仕組み", nav_roadmap:"ロードマップ", nav_tokenomics:"トークノミクス", nav_rescue:"救援基金", nav_buy:"BEATを購入", hero_title:"動物を救う<br/>暗号通貨", hero_sub:"BEAT Coinを取引するたびに、<strong>取引手数料の10%</strong>が動物救援団体に直接送られます。", btn_buy:"今すぐBEATを購入", hero_note:"Polygonで動作 · 低手数料 · 即時スワップ", stat_price:"ライブ価格", stat_mcap:"時価総額", stat_fee:"手数料が動物救援に", stat_holders:"保有者", stat_symbol:"トークンシンボル", stat_dex:"DEXで取引", mission_title:"利益を超えたミッション", mission_p1:"BEAT Coinはシンプルだが強力なアイデアで作られました。", mission_p2:"BEAT Coinネットワークの各取引は、検証済みの動物救援団体に手数料の一部を貢献します。", mission_highlight:"🐾 各取引手数料の10%が動物救援を支援します — 自動的に、透明に、オンチェーンで。", mission_visual_label:"取引手数料の<br/>動物救援への配分", impact_tag:"私たちのコミットメント", impact_title:"動物の心を持つ暗号通貨", impact_sub:"すべての取引が自分で話せない動物に違いをもたらします", impact1_title:"動物福祉", impact1_desc:"声を持てない動物への直接支援。", impact2_title:"透明な寄付", impact2_desc:"すべての寄付はブロックチェーン上で公開検証可能です。", impact3_title:"共に成長", impact3_desc:"BEATが成長するにつれて、私たちの影響力も成長します。", how_tag:"始め方", how_title:"仕組み", how_sub:"BEAT Coinを始めるのに5分もかかりません", step1_num:"ステップ1", step1_title:"ウォレットを取得", step1_desc:"MetaMaskをダウンロードしてPolygonネットワークを追加します。", step2_num:"ステップ2", step2_title:"POLを取得", step2_desc:"取引所でPOL (MATIC)を購入してウォレットに送ります。", step3_num:"ステップ3", step3_title:"QuickSwapでスワップ", step3_desc:"QuickSwapに行き、POLをBEATに交換します。", step4_num:"ステップ4", step4_title:"命を救っています", step4_desc:"各取引が手数料の10%を動物救援に貢献します。", token_tag:"配分", token_title:"トークノミクス", token_sub:"透明で、シンプルで、影響のために構築", t_network:"ネットワーク", t_dex:"DEX", t_fee:"取引手数料", t_symbol:"シンボル", t_supply:"総供給量", t_decimals:"小数点", t_standard:"標準", t_contract:"コントラクト", dist_title:"トークン配分", dist_circ:"流通供給量", dist_burned:"バーン済み", dist_lp:"流動性プール", dist_community:"コミュニティ", dist_team:"チーム", road_tag:"私たちの旅", road_title:"ロードマップ", road_sub:"これまでの道のりとこれからの方向性", road_phase1:"フェーズ1", road_phase2:"フェーズ2", road_phase3:"フェーズ3", road_done:"✓ 完了", road_progress:"→ 進行中", road_upcoming:"○ 予定", road1_title:"基盤", road1_1:"Polygonにトークンをデプロイ", road1_2:"QuickSwap流動性プール", road1_3:"DEXTools & DEXScreenerリスティング", road1_4:"コミュニティ立ち上げ", road2_title:"成長", road2_1:"コミュニティ成長キャンペーン", road2_2:"初の動物福祉寄付", road2_3:"CoinGecko / CMCリスティング", road2_4:"ギブアウェイプログラム", road3_title:"拡大", road3_1:"CEXリスティング", road3_
