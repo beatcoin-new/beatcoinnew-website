@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BEAT Coin — Crypto That Saves Lives</title>
+  <meta name="description" content="BEAT Coin is the first cryptocurrency where 10% of every transaction fee goes directly to animal rescue organizations. Buy BEAT on Polygon network." />
+  <meta property="og:title" content="BEAT Coin — Crypto That Saves Lives" />
+  <meta property="og:description" content="10% of every transaction fee supports animal rescue. Buy BEAT on QuickSwap." />
+  <meta property="og:image" content="logo.jpg" />
+  <link rel="icon" href="logo.jpg" type="image/jpeg" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --primary: #7c3aed;
+      --primary-dark: #5b21b6;
+      --accent: #f59e0b;
+      --accent-dark: #d97706;
+      --bg-dark: #0f0a1e;
+      --bg-card: #1a1035;
+      --text-main: #f0e6ff;
+      --text-muted: #a78bfa;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 32px;
+      background: rgba(15, 10, 30, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(124, 58, 237, 0.3);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 2px solid var(--primary);
+    }
+
+    .nav-logo span {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text-main); }
+
+    .nav-buy-btn {
+      background: var(--accent);
+      color: #1a1035 !important;
+      font-weight: 700 !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      transition: background 0.2s !important;
+    }
+
+    .nav-buy-btn:hover { background: var(--accent-dark) !important; color: #fff !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(124,58,237,0.25) 0%, transparent 70%);
+      position: relative;
+    }
+
+    .hero-paws {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      pointer-events: none;
+      overflow: hidden;
+      opacity: 0.04;
+      font-size: 80px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 60px;
+      padding: 40px;
+      justify-content: center;
+      align-content: flex-start;
+    }
+
+    .hero-content { max-width: 760px; position: relative; z-index: 1; }
+
+    .hero-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid var(--primary);
+      box-shadow: 0 0 40px rgba(124,58,237,0.5);
+      margin: 0 auto 28px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(124,58,237,0.2);
+      border: 1px solid rgba(124,58,237,0.5);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #fff 30%, var(--text-muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 36px;
+    }
+
+    .hero-sub strong {
+      color: var(--accent);
+      -webkit-text-fill-color: var(--accent);
+    }
+
+    .btn-buy {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #1a1035;
+      font-size: 1.15rem;
+      font-weight: 800;
+      padding: 16px 40px;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 8px 30px rgba(245,158,11,0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-buy:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(245,158,11,0.55);
+    }
+
+    .btn-buy svg { width: 22px; height: 22px; }
+
+    .hero-note {
+      margin-top: 18px;
+      font-size: 0.82rem;
+      color: rgba(167,139,250,0.6);
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--bg-card);
+      border-top: 1px solid rgba(124,58,237,0.2);
+      border-bottom: 1px solid rgba(124,58,237,0.2);
+      padding: 28px 24px;
+    }
+
+    .stats-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .stat { text-align: center; }
+
+    .stat-value {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ── SECTION ── */
+    section {
+      padding: 80px 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 48px;
+      font-size: 1rem;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(124,58,237,0.25);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .step-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-4px);
+    }
+
+    .step-icon {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+    }
+
+    .step-num {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 12px;
+    }
+
+    .step-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .step-card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* ── MISSION ── */
+    .mission-wrap {
+      background: var(--bg-card);
+      border: 1px solid rgba(124,58,237,0.25);
+      border-radius: 20px;
+      padding: 48px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    @media (max-width: 640px) {
+      .mission-wrap { grid-template-columns: 1fr; padding: 32px 24px; }
+      nav { padding: 12px 16px; }
+      .nav-links { display: none; }
+    }
+
+    .mission-text h2 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .mission-text p {
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+
+    .mission-highlight {
+      background: rgba(245,158,11,0.1);
+      border-left: 4px solid var(--accent);
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin-top: 20px;
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .mission-visual {
+      text-align: center;
+    }
+
+    .mission-paw {
+      font-size: 8rem;
+      line-height: 1;
+      filter: drop-shadow(0 0 20px rgba(124,58,237,0.4));
+    }
+
+    .mission-percent {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--accent);
+      display: block;
+      margin-top: 8px;
+    }
+
+    .mission-percent-label {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* ── TOKENOMICS ── */
+    .token-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .token-card {
+      background: var(--bg-card);
+      border: 1px solid rgba(124,58,237,0.2);
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .token-card .t-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+
+    .token-card .t-value {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      text-align: center;
+      padding: 80px 24px;
+      background: radial-gradient(ellipse at 50% 50%, rgba(124,58,237,0.15) 0%, transparent 70%);
+    }
+
+    .cta-section h2 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .cta-section p {
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      font-size: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-card);
+      border-top: 1px solid rgba(124,58,237,0.2);
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .footer-logo img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    .footer-logo span {
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--text-main); }
+
+    .footer-contract {
+      font-size: 0.75rem;
+      color: rgba(167,139,250,0.5);
+      word-break: break-all;
+      max-width: 600px;
+      margin: 0 auto 12px;
+    }
+
+    .footer-disclaimer {
+      font-size: 0.72rem;
+      color: rgba(167,139,250,0.4);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ── SOCIAL ── */
+    .social-row {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.35);
+      color: var(--text-muted);
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: all 0.2s;
+    }
+
+    .social-btn:hover {
+      background: rgba(124,58,237,0.3);
+      color: var(--text-main);
+      border-color: var(--primary);
+    }
+
+    /* ── PULSE ANIMATION ── */
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245,158,11,0.5); }
+      70% { transform: scale(1); box-shadow: 0 0 0 14px rgba(245,158,11,0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245,158,11,0); }
+    }
+
+    .btn-buy { animation: pulse-ring 2.5s infinite; }
+    .btn-buy:hover { animation: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">
+      <img src="logo.jpg" alt="BEAT Coin Logo" />
+      <span>BEAT Coin</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#tokenomics">Tokenomics</a></li>
+      <li><a href="https://quickswap.exchange/#/swap?outputCurrency=0xdf9e5484F664bF0374117754aafBb7db94d1C98b" target="_blank" class="nav-buy-btn">Buy BEAT</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-paws">
+      🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾🐾
+    </div>
+    <div class="hero-content">
+      <img src="logo.jpg" alt="BEAT Coin" class="hero-logo" />
+      <div class="hero-badge">🐾 Polygon Network · QuickSwap</div>
+      <h1>The Crypto That<br/>Saves Animals</h1>
+      <p class="hero-sub">
+        Every time you trade BEAT Coin, <strong>10% of transaction fees</strong> go directly to animal rescue organizations. Your investment does good.
+      </p>
+      <a
+        href="https://quickswap.exchange/#/swap?outputCurrency=0xdf9e5484F664bF0374117754aafBb7db94d1C98b"
+        target="_blank"
+        class="btn-buy"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+        </svg>
+        Buy BEAT Now
+      </a>
+      <p class="hero-note">Powered by Polygon · Low fees · Instant swaps</p>
+    </div>
+  </div>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat">
+        <div class="stat-value">10%</div>
+        <div class="stat-label">of fees to animal rescue</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">MATIC</div>
+        <div class="stat-label">Polygon network</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">BEAT</div>
+        <div class="stat-label">Token symbol</div>
+      </div>
+      <div class="stat">
+        <div class="stat-value">QuickSwap</div>
+        <div class="stat-label">Trade on DEX</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MISSION -->
+  <section id="mission">
+    <div class="mission-wrap">
+      <div class="mission-text">
+        <h2>A Mission Beyond Profit</h2>
+        <p>
+          BEAT Coin was created with a simple but powerful idea: what if every crypto trade could save a life?
+        </p>
+        <p>
+          Every transaction on the BEAT Coin network contributes a portion of its fees to verified animal rescue organizations. Stray dogs, abandoned cats, injured wildlife — your trades help them find safety, care, and loving homes.
+        </p>
+        <div class="mission-highlight">
+          🐾 10% of every transaction fee supports animal rescue — automatically, transparently, on-chain.
+        </div>
+      </div>
+      <div class="mission-visual">
+        <div class="mission-paw">🐾</div>
+        <span class="mission-percent">10%</span>
+        <div class="mission-percent-label">of transaction fees<br/>to animal rescue</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-sub">Getting started with BEAT Coin takes less than 5 minutes</p>
+    <div class="steps">
+      <div class="step-card">
+        <div class="step-icon">🦊</div>
+        <div class="step-num">Step 1</div>
+        <h3>Get a Wallet</h3>
+        <p>Download MetaMask and add the Polygon network. It's free and takes 2 minutes.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon">💜</div>
+        <div class="step-num">Step 2</div>
+        <h3>Get MATIC</h3>
+        <p>Buy MATIC (Polygon) on any exchange like Binance or Coinbase and send it to your wallet.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon">🔄</div>
+        <div class="step-num">Step 3</div>
+        <h3>Swap on QuickSwap</h3>
+        <p>Go to QuickSwap, paste the BEAT contract address, and swap MATIC for BEAT.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-icon">🐾</div>
+        <div class="step-num">Step 4</div>
+        <h3>You're Saving Lives</h3>
+        <p>Every trade you make contributes 10% of fees to animal rescue. Welcome to the BEAT family!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOKENOMICS -->
+  <section id="tokenomics">
+    <h2 class="section-title">Tokenomics</h2>
+    <p class="section-sub">Transparent, simple, and built for impact</p>
+    <div class="token-grid">
+      <div class="token-card">
+        <div class="t-label">Network</div>
+        <div class="t-value">Polygon</div>
+      </div>
+      <div class="token-card">
+        <div class="t-label">DEX</div>
+        <div class="t-value">QuickSwap</div>
+      </div>
+      <div class="token-card">
+        <div class="t-label">Transaction Fee</div>
+        <div class="t-value">10% to Rescue</div>
+      </div>
+      <div class="token-card">
+        <div class="t-label">Symbol</div>
+        <div class="t-value">BEAT</div>
+      </div>
+      <div class="token-card">
+        <div class="t-label">Contract</div>
+        <div class="t-value" style="font-size:0.75rem; word-break:break-all;">0xdf9e5484F664bF0374117754aafBb7db94d1C98b</div>
+      </div>
+      <div class="token-card">
+        <div class="t-label">Pair</div>
+        <div class="t-value">BEAT / WPOL</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>Ready to Make a Difference?</h2>
+    <p>Join the BEAT Coin community and help rescue animals with every trade.</p>
+    <div class="social-row">
+      <a href="https://www.tiktok.com/@beatcoinnew" target="_blank" class="social-btn">
+        🎵 TikTok
+      </a>
+      <a href="https://dexscreener.com/polygon/0x301136830DEE401f4Cab267e56789e8673D3f864" target="_blank" class="social-btn">
+        📊 DEXScreener
+      </a>
+      <a href="https://quickswap.exchange/#/swap?outputCurrency=0xdf9e5484F664bF0374117754aafBb7db94d1C98b" target="_blank" class="social-btn">
+        🔄 QuickSwap
+      </a>
+    </div>
+    <a
+      href="https://quickswap.exchange/#/swap?outputCurrency=0xdf9e5484F664bF0374117754aafBb7db94d1C98b"
+      target="_blank"
+      class="btn-buy"
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+      </svg>
+      Buy BEAT Now
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">
+      <img src="logo.jpg" alt="BEAT Coin" />
+      <span>BEAT Coin</span>
+    </div>
+    <div class="footer-links">
+      <a href="https://quickswap.exchange/#/swap?outputCurrency=0xdf9e5484F664bF0374117754aafBb7db94d1C98b" target="_blank">Buy BEAT</a>
+      <a href="https://dexscreener.com/polygon/0x301136830DEE401f4Cab267e56789e8673D3f864" target="_blank">DEXScreener</a>
+      <a href="https://www.tiktok.com/@beatcoinnew" target="_blank">TikTok</a>
+      <a href="#mission">Mission</a>
+      <a href="#how">How It Works</a>
+    </div>
+    <div class="footer-contract">
+      Contract: 0xdf9e5484F664bF0374117754aafBb7db94d1C98b · Polygon Network
+    </div>
+    <div class="footer-disclaimer">
+      Cryptocurrency investments carry risk. This is not financial advice. BEAT Coin is a community-driven project. Always do your own research before investing.
+    </div>
+  </footer>
+
+</body>
+</html>
