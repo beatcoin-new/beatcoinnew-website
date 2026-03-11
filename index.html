@@ -755,7 +755,7 @@
       <li><a href="https://quickswap.exchange/#/swap?outputCurrency=0xdf9e5484F664bF0374117754aafBb7db94d1C98b" target="_blank" class="nav-buy-btn" data-i18n="nav_buy">Buy BEAT</a></li>
     </ul>
     <div style="display:flex;align-items:center;gap:10px;">
-      <div class="lang-selector">
+      <div class="lang-selector lang-wrapper">
         <button class="lang-btn" onclick="toggleLang()" id="langBtn">🇺🇸 EN ▾</button>
         <div class="lang-dropdown" id="langDropdown">
           <div class="lang-option active" onclick="setLang('en')">🇺🇸 English</div>
@@ -1619,7 +1619,7 @@ road3_2:"NFTコレクション", road3_3:"DAOガバナンス", road3_4:"動物�
     // Close dropdown when clicking outside
     document.addEventListener('click', function(e) {
       const wrapper = document.querySelector('.lang-wrapper');
-      if (wrapper && !wrapper.contains(e.target)) {
+      if (!wrapper || !wrapper.contains(e.target)) {
         const dd = document.getElementById('langDropdown');
         if (dd) dd.classList.remove('open');
       }
